@@ -27,18 +27,18 @@
                 <div class="row">
                     <div class="col-12 d-flex flex-wrap justify-content-between align-items-center">
                         <div class="site-branding d-flex align-items-center">
-                            <a class="d-block" href="index.html" rel="home"><img class="d-block" src="images/logo.png" alt="logo"></a>
+                            <a class="d-block" href="index.jsp" rel="home"><img class="d-block" src="images/logo.png" alt="logo"></a>
                         </div><!-- .site-branding -->
 
                         <nav class="site-navigation d-flex justify-content-end align-items-center">
                             <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-items-center">
-                                <li class="current-menu-item"><a href="index.html">Home</a></li>
-                                <li><a href="packages.html">Packages</a></li>
-                                <li><a href="contact.html">Log In/</a></li>
+                                <li class="current-menu-item"><a href="index.jsp">Home</a></li>
+                                <li><a href="packages.jsp">Packages</a></li>
+                                <li><a href="contact.jsp">Log In/</a></li>
                                 
 
                                 <li class="call-btn button gradient-bg mt-3 mt-md-0">
-                                    <a class="d-flex justify-content-center align-items-center" href="#">LOGIN/REGISTER</a>
+                                    <a class="d-flex justify-content-center align-items-center" href="loginRegister.jsp">LOGIN/REGISTER</a>
                                 </li>
                             </ul>
                         </nav><!-- .site-navigation -->
@@ -87,6 +87,8 @@
                             Password: <br>
                              <input>
                         </ul>
+                        <br>
+                        <input type="submit" name="" value="Log In" class="button gradient-bg">
                     </div>
                 </div>
 
@@ -101,6 +103,8 @@
                             Password: <br>
                              <input>
                         </ul>
+                        <br>
+                        <input type="submit" name="" value="Register" class="button gradient-bg">
                     </div>
                 </div>
             </div>
@@ -126,7 +130,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                             <h2>Contact</h2>
 
                             <ul class="p-0 m-0">
-                                <li><span>Addtress:</span>Mitlton Str. 26-27 London UK</li>
+                                <li><span>Address:</span>Mitlton Str. 26-27 London UK</li>
                                 <li><span>Phone:</span>+53 345 7953 32453</li>
                                 <li><span>Email:</span>yourmail@gmail.com</li>
                             </ul>
@@ -138,10 +142,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                             <h2>Useful Links</h2>
 
                             <ul class="p-0 m-0">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="elements.html">Departments</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="packages.html">FAQ</a></li>
+                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="contact.jsp">Contact</a></li>
+                                <li><a href="packages.jsp">FAQ</a></li>
                             </ul>
                         </div><!-- .foot-links -->
                     </div><!-- .col -->

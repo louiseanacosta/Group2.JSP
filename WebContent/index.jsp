@@ -39,7 +39,7 @@
                                 
 
                                 <li class="call-btn button gradient-bg mt-3 mt-md-0">
-                                    <a class="d-flex justify-content-center align-items-center" href="#">LOGIN/REGISTER</a>
+                                    <a class="d-flex justify-content-center align-items-center" href="loginRegister.jsp">LOGIN/REGISTER</a>
                                 </li>
                             </ul>
                         </nav><!-- .site-navigation -->
