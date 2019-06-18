@@ -35,9 +35,13 @@ public class Customer implements Serializable {
 
 	private String custLastName;
 
+	private String custPassword;
+
 	private String custPostal;
 
 	private String custProv;
+
+	private String custUserId;
 
 	public Customer() {
 	}
@@ -122,6 +126,14 @@ public class Customer implements Serializable {
 		this.custLastName = custLastName;
 	}
 
+	public String getCustPassword() {
+		return this.custPassword;
+	}
+
+	public void setCustPassword(String custPassword) {
+		this.custPassword = custPassword;
+	}
+
 	public String getCustPostal() {
 		return this.custPostal;
 	}
@@ -136,6 +148,14 @@ public class Customer implements Serializable {
 
 	public void setCustProv(String custProv) {
 		this.custProv = custProv;
+	}
+
+	public String getCustUserId() {
+		return this.custUserId;
+	}
+
+	public void setCustUserId(String custUserId) {
+		this.custUserId = custUserId;
 	}
 
 }

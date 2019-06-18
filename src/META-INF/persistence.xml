@@ -3,9 +3,11 @@
 	<persistence-unit name="Group2JSP" transaction-type="RESOURCE_LOCAL">
 		<class>model.Bookingdetail</class>
 		<class>model.Booking</class>
-		<class>model.Customer</class>
 		<class>model.Agent</class>
 		<class>model.Package</class>
+		<class>model.Customer</class>
+		<class>model.Country</class>
+		<class>model.Provstate</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/travelexperts"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
