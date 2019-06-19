@@ -1,0 +1,21 @@
+-- CHANGES MADE TO TRAVEL EXPERTS DATABASE
+
+-- added customer user and password in order to login to travel experts website
+ALTER TABLE customers
+ADD COLUMN CustUserId VARCHAR(20);
+
+ALTER TABLE customers
+ADD COLUMN CustPassword VARCHAR(20);
+
+-- add country table
+CREATE TABLE IF NOT EXISTS Country (
+    Code INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(20)
+);
+
+-- add provstate table
+CREATE TABLE IF NOT EXISTS ProvState (
+    Code INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(20),
+	CountryCode VARCHAR(20)
+);
