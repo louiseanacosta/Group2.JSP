@@ -37,9 +37,11 @@ public class LoginVerifier extends HttpServlet {
 		String userid = request.getParameter("userid");
 		String password = request.getParameter("password");
 		if (verifyLogin(userid, password))
-		{
+		{   
+			session.setAttribute("userid", userid);
 			session.setAttribute("loggedin", "True");
-			response.sendRedirect("index.jsp");
+			session.setMaxInactiveInterval(30);
+			response.sendRedirect("profile.jsp");
 		}
 		else
 		{

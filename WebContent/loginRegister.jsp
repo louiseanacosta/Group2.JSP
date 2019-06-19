@@ -96,10 +96,10 @@ function showProv(country)
 		        "custProv": document.getElementById("custProv").value,
 		        "custUserId": document.getElementById("newuserid").value}),
 		        success: function(data) {
-		            alert('New agent was inserted.');
+		            alert('Register complete! Please log in to visit our website');
 			    },
 			    failure:  function(data) {
-	            	alert('Agent creation failed.');
+	            	alert('Register complete!');
 			    }  
 		});
 	}
@@ -199,17 +199,17 @@ function showProv(country)
                         <h2 class="d-flex align-items-center">Not yet a member? Register with us:</h2>
 						
                         <ul class="p-0 m-0">
-                        Frist Name:<br>
-		        			<input type="text" name="custFirstName" id="custFirstName" required/>
+                        	Frist Name:<br>
+		        			<input type="text" name="custFirstName" id="custFirstName" pattern="/^[a-z ,.'-]+$/i" title="invalid name"/>
 		        			<br>
 		        			Last Name:<br>
-		        			<input type="text" name="custLastName" id="custLastName" required/>
+		        			<input type="text" name="custLastName" id="custLastName" pattern="/^[a-z ,.'-]+$/i" title="invalid name"/>
 		        			<br>
 		        			Bussiness Phone:<br>
-		        			<input type="text" name="custBusPhone" id="custBusPhone" required/>
+		        			<input type="text" name="custBusPhone" id="custBusPhone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" title="(403)xxx-xxxx or 403xxxxxxx"/>
 		        			<br>
 		        			Home Phone:<br>
-		        			<input type="text" name="custHomePhone" id="custHomePhone" required/>
+		        			<input type="text" name="custHomePhone" id="custHomePhone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" title="(403)xxx-xxxx or 403xxxxxxx"/>
 		        			<br>
 		        			Country:<br>
 		        			<select name='custCountry' id='custCountry' onchange='showProv(this.value)'>
@@ -222,25 +222,25 @@ function showProv(country)
 		        			</select>
 		        			<br>
 		        			Address:<br>
-		        			<input type="text" name="custAddress" id="custAddress" required/>
+		        			<input type="text" name="custAddress" id="custAddress" pattern="[A-Za-z0-9'\.\-\s\,].{1,50}" title="Invalid address"/>
 		        			<br>
 		        			Postal Code:<br>
-		        			<input type="text" name="custPostal" id="custPostal" required/>
+		        			<input type="text" name="custPostal" id="custPostal" patter="[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d" title="Invalid postal code" />
 		        			<br>
 		        			City:<br>
-		        			<input type="text" name="custCity" id="custCity" required/>
+		        			<input type="text" name="custCity" id="custCity" pattern="[a-zA-Z].{1.20}" title="Invalid city name"/>
 		        			<br>		        			
 		        			Email:<br>
-		        			<input type="text" name="custEmail" id="custEmail" required/>
+		        			<input type="text" name="custEmail" id="custEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  title="Please enter an valid email"/>
 		        			<br>
 		        			agentId:<br>
 		        			<input type="text" name="agentId" id="agentId"/>
 		        			<br>
                             Username: <br>
-                            <input type="text" name="newuserid" id="newuserid" required/>
+                            <input type="text" name="newuserid" id="newuserid" pattern="(?i)^(?=.*[a-z])[a-z0-9]{8,20}$" title="User name only in number and letters, it must contain 1 letter and 8 to 20 digit long"/>
                             <br>
                             Password: <br>
-                             <input type="password" name="newpassword" id="newpassword" required/>
+                             <input type="password" name="newpassword" id="newpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
                         </ul>
                         <br>
                         <button type="button" name="" value="Register" class="button gradient-bg" onclick="savecustomer()">MY BUTTON</button>
