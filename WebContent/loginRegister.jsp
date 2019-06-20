@@ -82,7 +82,7 @@ function showProv(country)
 			//dataType: "text",
 			data: JSON.stringify({
 		        "customerId": 0,
-		        "agentId": parseInt(document.getElementById("agentId").value),
+		        "agentId":2,
 		        "custAddress": document.getElementById("custAddress").value,
 		        "custBusPhone": document.getElementById("custBusPhone").value,
 		        "custCity": document.getElementById("custCity").value,
@@ -233,9 +233,7 @@ function showProv(country)
 		        			Email:<br>
 		        			<input type="text" name="custEmail" id="custEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  title="Please enter an valid email"/>
 		        			<br>
-		        			agentId:<br>
-		        			<input type="text" name="agentId" id="agentId"/>
-		        			<br>
+		        			
                             Username: <br>
                             <input type="text" name="newuserid" id="newuserid" pattern="(?i)^(?=.*[a-z])[a-z0-9]{8,20}$" title="User name only in number and letters, it must contain 1 letter and 8 to 20 digit long"/>
                             <br>
@@ -243,7 +241,7 @@ function showProv(country)
                              <input type="password" name="newpassword" id="newpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
                         </ul>
                         <br>
-                        <button type="button" name="" value="Register" class="button gradient-bg" onclick="savecustomer()">MY BUTTON</button>
+                        <button type="button" name="" value="Register" class="button gradient-bg" onclick="savecustomer()">Register</button>
                     </form>
                     </div>
                 </div>

@@ -6,13 +6,13 @@
 * Author: Liming
 * Purpose: 
 */
-	/* String loggedin = (String)session.getAttribute("loggedin");
+	 String loggedin = (String)session.getAttribute("loggedin");
 	String userid = (String)session.getAttribute("userid");
 	if ((loggedin == null) || loggedin.equals("False"))//can't use == as String is object and equals() compares 2 String object
 	{
 		session.setAttribute("message","You need to sign on First");
 		response.sendRedirect("loginRegister.jsp");
-	} */
+	} 
 	
 %>
 <!DOCTYPE html>
@@ -42,12 +42,12 @@
  * Purpose: 
  */
  
-/* 		if ((userid != null) && (!userid.equals("")))
+ 		if ((userid != null) && (!userid.equals("")))
 		{
 			out.print("<h3 class='d-flex align-items-center'> Hello " + userid + ", welcome to your travel profile </h3>");
 			session.removeAttribute("message");
 		}
-  */
+  
 %>
 
 <style>
@@ -90,7 +90,10 @@ margin:0px auto;
                                 <li><a href="packages.jsp">Packages</a></li>
                                 <li><a href="contact.jsp">Contact</a></li>
                                 <li><a href="profile.jsp">Account</a></li>
-                                <input action="Logout" method="post" type="submit" value="Logout" class="button gradient-bg">
+                                <form action="Logout" method="post">
+									<input action="Logout" method="post" type="submit" value="Logout" class="button gradient-bg">
+  							    </form>
+                                
 
                             </ul>
                         </nav><!-- .site-navigation -->
