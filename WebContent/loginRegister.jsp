@@ -174,7 +174,7 @@ function showProv(country)
                             <input type="text" name="userid" required/>
                             <br>
                             Password: <br>
-                             <input type="text" name="password" required/>
+                             <input type="password" name="password" required/>
                              <br>
                              
     <%
@@ -199,11 +199,12 @@ function showProv(country)
                         <h2 class="d-flex align-items-center">Not yet a member? Register with us:</h2>
 						
                         <ul class="p-0 m-0">
+                        
                         	Frist Name:<br>
-		        			<input type="text" name="custFirstName" id="custFirstName" pattern="/^[a-z ,.'-]+$/i" title="invalid name"/>
+		        			<input type="text" name="custFirstName" id="custFirstName" pattern="^[A-Za-z ,.'-]+$" title="invalid name"/>
 		        			<br>
 		        			Last Name:<br>
-		        			<input type="text" name="custLastName" id="custLastName" pattern="/^[a-z ,.'-]+$/i" title="invalid name"/>
+		        			<input type="text" name="custLastName" id="custLastName" pattern="^[A-Za-z ,.'-]+$" title="invalid name"/>
 		        			<br>
 		        			Bussiness Phone:<br>
 		        			<input type="text" name="custBusPhone" id="custBusPhone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" title="(403)xxx-xxxx or 403xxxxxxx"/>
@@ -235,10 +236,11 @@ function showProv(country)
 		        			<br>
 		        			
                             Username: <br>
-                            <input type="text" name="newuserid" id="newuserid" pattern="(?i)^(?=.*[a-z])[a-z0-9]{8,20}$" title="User name only in number and letters, it must contain 1 letter and 8 to 20 digit long"/>
+                            <input type="text" name="newuserid" id="newuserid" pattern="(?i)^(?=.*[a-z])[a-z0-9]{8,20}$" title="User name only in number and letters, it must contain 1 letter and 8 to 20 digit long" required/>
                             <br>
                             Password: <br>
-                             <input type="password" name="newpassword" id="newpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
+                             <input type="password" name="newpassword" id="newpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+                        
                         </ul>
                         <br>
                         <button type="button" name="" value="Register" class="button gradient-bg" onclick="savecustomer()">Register</button>

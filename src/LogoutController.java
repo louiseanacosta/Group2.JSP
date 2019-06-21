@@ -23,7 +23,7 @@ public class LogoutController extends HttpServlet {
       out.println("<h1>Thank you for using travel experts! Your account is logout.</h1>");
       HttpSession session = request.getSession(false);
       // session.setAttribute("user", null);
-      session.removeAttribute("loggin");
+      session.removeAttribute("loggedin");
       session.getMaxInactiveInterval();
    }
 }

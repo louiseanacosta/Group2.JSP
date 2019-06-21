@@ -72,6 +72,8 @@ public class CustomerRestService {
 		Gson gson = new Gson();
 		Type type = new TypeToken<Customer>() {}.getType();
 		Customer customer = gson.fromJson(jsonString, type);
+	//	if (validate())
+		{
 				EntityManager em 
 				= Persistence.createEntityManagerFactory("Group2JSP").createEntityManager();
 				em.getTransaction().begin();// start transaction
@@ -79,6 +81,7 @@ public class CustomerRestService {
 				em.getTransaction().commit();//commit transcation
 				
 				return "Customer insert Complete";
+		}
 	}
 
 }
