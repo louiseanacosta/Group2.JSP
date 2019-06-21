@@ -201,38 +201,38 @@ function showProv(country)
                         <ul class="p-0 m-0">
                         
                         	Frist Name:<br>
-		        			<input type="text" name="custFirstName" id="custFirstName" pattern="^[A-Za-z ,.'-]+$" title="invalid name"/>
+		        			<input type="text" name="custFirstName" id="custFirstName" pattern="^[A-Za-z ,.'-]+$" title="invalid name" required="required"/>
 		        			<br>
 		        			Last Name:<br>
-		        			<input type="text" name="custLastName" id="custLastName" pattern="^[A-Za-z ,.'-]+$" title="invalid name"/>
+		        			<input type="text" name="custLastName" id="custLastName" pattern="^[A-Za-z ,.'-]+$" title="invalid name" required="required"/>
 		        			<br>
 		        			Bussiness Phone:<br>
-		        			<input type="text" name="custBusPhone" id="custBusPhone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" title="(403)xxx-xxxx or 403xxxxxxx"/>
+		        			<input type="text" name="custBusPhone" id="custBusPhone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" title="(403)xxx-xxxx or 403xxxxxxx" required="required"/>
 		        			<br>
 		        			Home Phone:<br>
-		        			<input type="text" name="custHomePhone" id="custHomePhone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" title="(403)xxx-xxxx or 403xxxxxxx"/>
+		        			<input type="text" name="custHomePhone" id="custHomePhone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" title="(403)xxx-xxxx or 403xxxxxxx" required="required"/>
 		        			<br>
 		        			Country:<br>
-		        			<select name='custCountry' id='custCountry' onchange='showProv(this.value)'>
+		        			<select name='custCountry' id='custCountry' onchange='showProv(this.value)' required="required">
 		        			<option value=''>Select One...</option>
 		        			</select>
 		        			<br>
 		        			Province:<br>
-		        			<select name='custProv'  id='custProv'>
+		        			<select name='custProv'  id='custProv' required="required">
 		        			<option value=''>Select One...</option>
 		        			</select>
 		        			<br>
 		        			Address:<br>
-		        			<input type="text" name="custAddress" id="custAddress" pattern="[A-Za-z0-9'\.\-\s\,].{1,50}" title="Invalid address"/>
+		        			<input type="text" name="custAddress" id="custAddress" pattern="[A-Za-z0-9'\.\-\s\,].{1,50}" title="Invalid address" required="required"/>
 		        			<br>
 		        			Postal Code:<br>
-		        			<input type="text" name="custPostal" id="custPostal" patter="[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d" title="Invalid postal code" />
+		        			<input type="text" name="custPostal" id="custPostal" patter="[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d" title="Invalid postal code" required="required"/>
 		        			<br>
 		        			City:<br>
-		        			<input type="text" name="custCity" id="custCity" pattern="[a-zA-Z].{1.20}" title="Invalid city name"/>
+		        			<input type="text" name="custCity" id="custCity" pattern="[a-zA-Z].{1.20}" title="Invalid city name" required="required"/>
 		        			<br>		        			
 		        			Email:<br>
-		        			<input type="text" name="custEmail" id="custEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  title="Please enter an valid email"/>
+		        			<input type="text" name="custEmail" id="custEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  title="Please enter an valid email" required="required"/>
 		        			<br>
 		        			
                             Username: <br>
