@@ -92,9 +92,9 @@ function validate()
      var custFirstNameRegex= RegExp("^[A-Za-z ,.-]+$");
      var custHomePhoneRegex=RegExp("^[0-9 ()-]+$");
      var custLastNameRegex=RegExp("^[A-Za-z ,.-]+$");
-     var custPasswordRegex= RegExp("^(?=(.*[a-z]).{1,})(?=(.*[\d]).{1,})(?=(.*[\W]).{1,})(?!.*\s).{7,30}$");
+     var custPasswordRegex= RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
      var custPostalRegex= RegExp("[A-Za-z][0-9][A-Za-z][ -]?[0-9][A-Za-z][0-9]");      
-     var custUserIdRegex= RegExp("^[?=(.*[a-z])].{1,})(?=(.*[\d]).{1,})(?=(.*[\W]).{1,})(?!.*\s).{7,30}$");
+     var custUserIdRegex= RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
      
      var AddressResult = custAddressRegex.test(custAddress);
      var BusPhoneResult =custBusPhoneRegex.test(custBusPhone);
@@ -155,13 +155,13 @@ function validate()
 	 
 	if(UserIdResult == false)
 	{
-	alert('User must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters');
+	alert('User must contain at least one number one special character and one uppercase and lowercase letter, and at least 8  more characters');
 	return false;
 	}
 	 
 	if(PasswordResult == false)
 	{
-	alert('Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters');
+	alert('Password must contain at least one number one special character and one uppercase and lowercase letter, and at least 8  more characters');
 	return false;
 	}
 	
