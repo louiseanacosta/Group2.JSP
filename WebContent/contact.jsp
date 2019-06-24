@@ -218,7 +218,7 @@ function loadagentsList()
 	</script>
 	<div class="col-12 col-md-6 col-lg-3">
 	<div id="div1" class="medical-team-wrap"></div>
-	 <img src="images/team-1.jpg" alt="">
+	
 	</div>
                 <!-- <div class="col-12 col-md-6 col-lg-3">
                     <div class="medical-team-wrap">
