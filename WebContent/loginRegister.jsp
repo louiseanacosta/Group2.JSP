@@ -30,7 +30,7 @@ function showCountry()
 {
 	
 	var Countryselect = document.getElementById("custCountry");
-	var url = "http://localhost:8080/Group2JSP/rest/country/getallCountries";
+	var url = "http://localhost:8181/Group2JSP/rest/country/getallCountries";
 	$.get(url,function(json)
 		{
 		
@@ -48,7 +48,7 @@ function showProv(country)
 {
 	var Provselect = document.getElementById("custProv");
 	
-	var url = "http://localhost:8080/Group2JSP/rest/country/getProvState/"+country;
+	var url = "http://localhost:8181/Group2JSP/rest/country/getProvState/"+country;
 	
 	$.get(url,function(json)
 			{
@@ -74,7 +74,7 @@ function showProv(country)
 	function savecustomer()
 	{
 		console.log("In savecustomer()...")
-		var url = 'http://localhost:8080/Group2JSP/rest/customer/insertcustomer';
+		var url = 'http://localhost:8181/Group2JSP/rest/customer/insertcustomer';
 		$.ajax({
 			url:url,
 			method:'put',
