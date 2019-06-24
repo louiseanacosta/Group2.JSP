@@ -70,8 +70,12 @@ function showcust(userid)
 	document.getElementById("custBusPhone").value= custBusPhone;
 	document.getElementById("custHomePhone").value= custHomePhone;
 	//need to fix the country and Prov select 
-	document.getElementById("custCountry").value= custCountry;
-	document.getElementById("custProv").value= custProv;
+	var country = document.getElementById("custCountry");
+	country.options[country.options.length] = new Option(custCountry, custCountry);
+	
+	var prov = document.getElementById("custProv");
+	prov.options[prov.options.length] = new Option(custProv, custProv);
+	
 	document.getElementById("custAddress").value= custAddress;
 	document.getElementById("custPostal").value= custPostal;
 	document.getElementById("custLastName").value= custLastName;
@@ -203,12 +207,12 @@ margin:0px auto;
 					        			<label>Home Phone:</label><input type="text" name="custHomePhone" id="custHomePhone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" title="(403)xxx-xxxx or 403xxxxxxx"/>
 					        			<br>
 					        			<label>Country:</label><select name='custCountry' id='custCountry' onchange='showProv(this.value)'>
-					        			<option value=''>Select One...</option>
+					        			
 					        			</select>
 					        			<br>
 					        			<label>Province:</label>
 					        			<select name='custProv'  id='custProv'>
-					        			<option value=''>Select One...</option>
+					        			
 					        			</select>
 					        			<br>
 					        			<label>Address:</label>
