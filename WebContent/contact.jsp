@@ -34,27 +34,34 @@ function loadagentsList()
 {
 	//var agentselect =$("#agentid");
 	
-	var url = "http://localhost:8181/Group2JSP/rest/agents/getallagents";
+	var url = "http://localhost:8080/Group2JSP/rest/agents/getallagents";
 	$.get(url,function(json)
 		{
 		//info being displayed on page
 		for(i=0; i<json.length; i++){
 			var para = document.createElement("P"); //,"div class="col-12 col-md-6 col-lg-3","img src="images/team-1.jpg","div class="medical-team-wrap"
+			var DOM_a = document.createElement("a");
 			var string = json[i].agentId+" "
 			+json[i].agtFirstName+" "
 			+json[i].agtLastName+" "
-			+json[i].agtEmail
-			+json[i].agtBusPhone
-			+json[i].agtPosition};
+			+json[i].agtEmail+" "
+			+json[i].agtBusPhone+" "
+			+json[i].agtPosition;
 			var node = document.createTextNode(string);
-			para.appendChild(node);
+			
+			var img = document.createElement('img');
+			    img.src = "images/team-1.jpg";
+			       
+			    DOM_a.appendChild(img);
+			    para.appendChild(node);
 			
 			
 			var element = document.getElementById("div1");
 			element.appendChild(para);
+			element.appendChild(DOM_a);
 		}
 		
-	,"json");
+		},"json");
 }
 </script>
 </head>
@@ -196,8 +203,8 @@ function loadagentsList()
   -- DB and display their details 
  -->
  
-<div id="agentdetail"></div>   	
-	<div id="div1"></div> 
+   	
+	
     <div class="medical-team">
         <div class="container">
             <div class="row">
@@ -209,6 +216,10 @@ function loadagentsList()
 	<script>
 		$(document).ready(function(){loadagentsList();});
 	</script>
+	<div class="col-12 col-md-6 col-lg-3">
+	<div id="div1" class="medical-team-wrap"></div>
+	 <img src="images/team-1.jpg" alt="">
+	</div>
                 <!-- <div class="col-12 col-md-6 col-lg-3">
                     <div class="medical-team-wrap">
                         <img src="images/team-1.jpg" alt="">
