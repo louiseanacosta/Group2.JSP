@@ -25,9 +25,9 @@
     <link rel="stylesheet" href="style.css">
  <script type="text/javascript" src="jquery.js"></script>
  <script type="text/javascript"> 
-
+//show the country in form
 function showCountry()
-{
+{ 
 	
 	var Countryselect = document.getElementById("custCountry");
 	var url = "http://localhost:8080/Group2JSP/rest/country/getallCountries";
@@ -43,7 +43,7 @@ function showCountry()
 		
 	},"json");
 }
-
+//show the Province for each Country selected in form
 function showProv(country)
 {
 	var Provselect = document.getElementById("custProv");
@@ -71,8 +71,117 @@ function showProv(country)
 	</script>
 <script src="jquery.js"></script>
 <script>
-	function savecustomer()
+function validate()
+{    
+	 var custAddress =document.getElementById("custAddress").value;
+     var custBusPhone=document.getElementById("custBusPhone").value;
+     var custCity= document.getElementById("custCity").value;        
+     var custEmail=document.getElementById("custEmail").value;
+     var custFirstName= document.getElementById("custFirstName").value;
+     var custHomePhone=document.getElementById("custHomePhone").value;
+     var custLastName=document.getElementById("custLastName").value;
+     var custPassword= document.getElementById("newpassword").value;
+     var custPostal= document.getElementById("custPostal").value;        
+     var custUserId= document.getElementById("newuserid").value;
+     
+     
+     var custAddressRegex =RegExp("[A-Za-z0-9\.\-\s\,].{1,50}");
+     var custBusPhoneRegex=RegExp("^[0-9 ()-]+$");
+     var custCityRegex= RegExp("^[a-zA-Z]+$");       
+     var custEmailRegex=RegExp("[A-Za-z0-9\.\@].{1,50}");
+     var custFirstNameRegex= RegExp("^[A-Za-z ,.-]+$");
+     var custHomePhoneRegex=RegExp("^[0-9 ()-]+$");
+     var custLastNameRegex=RegExp("^[A-Za-z ,.-]+$");
+     var custPasswordRegex= RegExp("^(?=(.*[a-z]).{1,})(?=(.*[\d]).{1,})(?=(.*[\W]).{1,})(?!.*\s).{7,30}$");
+     var custPostalRegex= RegExp("[A-Za-z][0-9][A-Za-z][ -]?[0-9][A-Za-z][0-9]");      
+     var custUserIdRegex= RegExp("^[?=(.*[a-z])].{1,})(?=(.*[\d]).{1,})(?=(.*[\W]).{1,})(?!.*\s).{7,30}$");
+     
+     var AddressResult = custAddressRegex.test(custAddress);
+     var BusPhoneResult =custBusPhoneRegex.test(custBusPhone);
+     var CityResult=custCityRegex.test(custCity);
+     var EmailResult=custEmailRegex.test(custEmailRegex);
+     var FirstNameResult=custFirstNameRegex.test(custFirstName);
+     var HomePhoneResult=custHomePhoneRegex.test(custHomePhone);
+     var LastNameResult=custLastNameRegex.test(custLastName);
+     var PostalResult= custPostalRegex.test( custPostal);
+     var UserIdResult=custUserIdRegex.test(custUserId);
+     var PasswordResult=custUserIdRegex.test(custPassword);
+     
+     
+     
+     if(FirstNameResult == false)
+ 	{
+ 	alert('Please enter a valid First Name');
+ 	return false;
+ 	}
+     if(LastNameResult == false)
+ 	{
+ 	alert('Please enter a Last Name number');
+ 	return false;
+ 	}
+     if(BusPhoneResult == false)
+ 	{
+ 	alert('Please enter a valid business Phone number');
+ 	return false;
+ 	}  
+     if(HomePhoneResult == false)
+ 	{
+ 	alert('Please enter a valid Home Phone number');
+ 	return false;
+ 	}
+	if(AddressResult == false)
 	{
+	alert('Please enter a valid Address');
+	return false;
+	}
+	 
+	if(PostalResult == false)
+	{
+	alert('Please enter a valid postal number');
+	return false;
+	}
+	 
+	if(CityResult == false)
+	{
+	alert('Please enter a valid City name');
+	return false;
+	}
+	 
+	if(EmailResult == false)
+	{
+	alert('Please enter a valid Email');
+	return false;
+	}
+	 
+	if(UserIdResult == false)
+	{
+	alert('User must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters');
+	return false;
+	}
+	 
+	if(PasswordResult == false)
+	{
+	alert('Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters');
+	return false;
+	}
+	
+	return true;
+}
+	function savecustomer()
+	{   
+		if( validate())
+			{
+		var custAddress =document.getElementById("custAddress").value;
+        var custBusPhone=document.getElementById("custBusPhone").value;
+        var custCity= document.getElementById("custCity").value;        
+        var custEmail=document.getElementById("custEmail").value;
+        var custFirstName= document.getElementById("custFirstName").value;
+        var custHomePhone=document.getElementById("custHomePhone").value;
+        var custLastName=document.getElementById("custLastName").value;
+        var custPassword= document.getElementById("newpassword").value;
+        var custPostal= document.getElementById("custPostal").value;        
+        var custUserId= document.getElementById("newuserid").value;
+        
 		console.log("In savecustomer()...")
 		var url = 'http://localhost:8080/Group2JSP/rest/customer/insertcustomer';
 		$.ajax({
@@ -102,6 +211,7 @@ function showProv(country)
 	            	alert('Register complete!');
 			    }  
 		});
+			}
 	}
 	
 </script>
@@ -195,7 +305,7 @@ function showProv(country)
 
                 <div class="col-12 col-md-4 mt-5 mt-lg-0">
                     <div class="opening-hours h-100">
-                    <form method="post" action="">
+                    <form name="registration" method="post" action="">
                         <h2 class="d-flex align-items-center">Not yet a member? Register with us:</h2>
 						
                         <ul class="p-0 m-0">
