@@ -29,7 +29,7 @@ public class AgentRestService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getAllAgents()
 	{
-		//	http://localhost:8080/JSPDay7/rest/agents/getallagents
+		//	http://localhost:8080/Group2JSP/rest/agents/getallagents
 		EntityManager em =
 				Persistence.createEntityManagerFactory("Group2JSP").createEntityManager();
 		Query query = em.createQuery("select a from Agent a");
@@ -91,7 +91,7 @@ public class AgentRestService {
 		Type type = new TypeToken<Agent>() {}.getType();
 		Agent agent = gson.fromJson(jsonString, type);
 		EntityManager em =
-				Persistence.createEntityManagerFactory("JSPDay7").createEntityManager();
+				Persistence.createEntityManagerFactory("Group2JSP").createEntityManager();
 		
 		em.getTransaction().begin();
 		em.persist(agent);
