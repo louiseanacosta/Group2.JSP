@@ -35,6 +35,56 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
+ <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+</script>
+
+ <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript"> 
+
+
+function showcust(userid)
+{	
+	
+	var url = "http://localhost:8080/Group2JSP/rest/customer/getuser/"+userid;
+	$.get(url,function(json){
+	var custFirstName = json.custFirstName;
+	var custLastName=json.custLastName;
+	var custBusPhone =json.custBusPhone;
+	var custHomePhone=json.custHomePhone;
+	var custCountry=json.custCountry;
+	var custProv=json.custProv;
+	var custAddress=json.custAddress;
+	var custPostal=json.custPostal;
+	var custCity=json.custCity;
+	var custEmail=json.custEmail;
+	
+	
+	
+	
+	
+	document.getElementById("custFirstName").value = custFirstName;
+	document.getElementById("custLastName").value= custLastName;
+	document.getElementById("custBusPhone").value= custBusPhone;
+	document.getElementById("custHomePhone").value= custHomePhone;
+	//need to fix the country and Prov select 
+	document.getElementById("custCountry").value= custCountry;
+	document.getElementById("custProv").value= custProv;
+	document.getElementById("custAddress").value= custAddress;
+	document.getElementById("custPostal").value= custPostal;
+	document.getElementById("custLastName").value= custLastName;
+	document.getElementById("custCity").value= custCity;
+	document.getElementById("custEmail").value= custEmail;
+		
+	},"json");
+}
+	
+</script>
+
+
+
 </head>
  <%
  /*
@@ -45,7 +95,10 @@
  		if ((userid != null) && (!userid.equals("")))
 		{
 			out.print("<h3 class='d-flex align-items-center'> Hello " + userid + ", welcome to your travel profile </h3>");
+			
+			
 			session.removeAttribute("message");
+			
 		}
   
 %>
@@ -134,7 +187,12 @@ margin:0px auto;
 			                   <div class="col-12 col-md-4 mt-5 mt-lg-0">
 			                    <form method="post" action="" style="width:300px">
 			                        <h2 class="d-flex align-items-center">My Profile</h2>
-									
+	
+	<script type="text/javascript">
+	var user = "<%=userid%>";
+	$(document).ready(function(){showcust(user);});
+	
+	</script>								
 			                        <ul class="p-0 m-0">
 			                        <fieldset>
 			                        	<label>First Name:</label><input type="text" name="custFirstName" id="custFirstName" pattern="/^[a-z ,.'-]+$/i" title="invalid name"/>

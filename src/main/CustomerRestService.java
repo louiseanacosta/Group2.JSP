@@ -41,6 +41,24 @@ public class CustomerRestService {
 			
 		
 	}
+	@GET
+	@Path("/getuser/{userId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getuser(@PathParam("userId") String userId)
+	{
+		//http://localhost:8080/Group2JSP/rest/customer/getuser/1
+		EntityManager em =
+				Persistence.createEntityManagerFactory("Group2JSP").createEntityManager();
+		Query query = em.createQuery("select c from Customer c where c.custUserId ='"+userId+"'");
+		Customer customer = (Customer) query.getSingleResult();
+		Gson gson = new Gson();
+		Type type = new TypeToken<Customer>(){}.getType();
+		String jsonString = gson.toJson(customer, type);
+		em.close();
+		return jsonString;
+			
+		
+	}
 	@POST
 	@Path("/updatecustomer")
 	@Consumes(MediaType.APPLICATION_JSON)
