@@ -19,6 +19,47 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
+    
+        <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+    
+</script>
+ <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+
+// loads package name, package desc, Base Price, package start date, and package end date
+function loadPackageList()
+{
+	//var selectPackage =$("#packageid");
+	
+	var url = "http://localhost:8181/Group2JSP/rest/package/getpackage/1";
+	$.get(url,function(json)
+		{
+		//info being displayed on page
+		for(i=0; i<json.length; i++){
+			var para = document.createElement("P"); //,"div class="col-12 col-md-6 col-lg-3","img src="images/team-1.jpg","div class="medical-team-wrap"
+			var string = json[i].packageId+" "
+			+json[i].pkgName+" "
+			+json[i].pkgDesc+" "
+			+json[i].pkgBasePrice
+			+json[i].pkgStartDate
+			+json[i].pkgEndDate};
+			var node = document.createTextNode(string);
+			para.appendChild(node);
+			
+			
+			var element = document.getElementById("div1");
+			element.appendChild(para);
+		}
+	,"json");
+}
+</script>
+    
+    
+    
+    
 </head>
 <body class="single-page blog-page">
     <header class="site-header">
@@ -58,7 +99,6 @@
             <div class="row">
                 <div class="col-12">
                     <h1>Packages</h1>
-
                     <div class="breadcrumbs">
                         <ul class="d-flex flex-wrap align-items-center p-0 m-0">
                             <li><a href="#">Home</a></li>
@@ -78,11 +118,23 @@
                 <div class="the-news">
                     <div class="row">
                         <div class="col-12 col-md-6">
+                        
+                      
                             <div class="the-news-wrap">
                                 <figure class="post-thumbnail">
                                     <a href="#"><img src="images/news-1.png" alt=""></a>
                                 </figure>
-
+                                
+                                  <script>
+									$(document).ready(function(){loadPackageList();});
+								  </script>
+	
+									<div class="col-12 col-md-6 col-lg-3">
+										<div class="div1" class="medical-team-wrap">
+										</div>
+									</div>
+                                
+<!-- 
                                 <header class="entry-header">
                                     <h3>The latest in Medicine</h3>
 
@@ -93,7 +145,7 @@
 
                                         <div class="post-comments"><a href="#">2 Comments</a></div>
                                     </div>
-                                </header>
+                                </header> -->
 
                                 <div class="entry-content">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. </p>
@@ -269,11 +321,11 @@
                         <h2 class="widget-title">Categories</h2>
 
                         <ul class="p-0 m-0">
-                            <li><a href="#">Radiology</a></li>
-                            <li><a href="#">Cardiology</a></li>
-                            <li><a href="#">Gastroenterology</a></li>
-                            <li><a href="#">Neurology</a></li>
-                            <li><a href="#">General surgery</a></li>
+                            <li><a href="#">Caribbean New Year</a></li>
+                            <li><a href="#">Polynesian Paradise</a></li>
+                            <li><a href="#">Asian Expedition</a></li>
+                            <li><a href="#">European Vacation</a></li>
+                            <li><a href="#">1qwe</a></li>
                         </ul>
                     </div>
 
