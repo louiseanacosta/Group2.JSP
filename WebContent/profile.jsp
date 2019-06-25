@@ -82,13 +82,21 @@ function showcust(userid)
 }
 
 // display booking of customer
-function showbooking(userid)
+function getcustomerid(userid)
 {
 	// get customer id 
 	var url = "http://localhost:8080/Group2JSP/rest/customer/getuser/"+userid;
 	$.get(url,function(json){
-	var customerId = json.customerId;
+		String customerId = json.customerId;
+		return customerId;
+	},"json");
 	
+}
+	
+
+function showbooking(userid)	
+{
+	var customerId = getcustomerid(userid);
 	// get booking by customer id
 	var displaybooking = document.getElementById("displaybooking"); // div to display booking
 	var url = "http://localhost:8080/Group2JSP/rest/booking/getbooking/"+customerId;
@@ -97,7 +105,6 @@ function showbooking(userid)
 		$.get(url,function(json){
 			for (i=0; i<json.length; i++)
 				{
-					
 					var tr = document.createElement("tr");
 					var td = document.createElement("td");
 					td.text=json[i].bookingNo;
@@ -111,8 +118,6 @@ function showbooking(userid)
 			table.appendChild(tr);
 			displaybooking.appendChild(table); 
 		},"json");
-	},"json");
-	
 	
 } 
 
@@ -293,7 +298,8 @@ table {
     <!------------------------ call display history booking function --------------------------->
     <script type="text/javascript">
     var userid = "<%=userid%>"
-	$(document).ready(function(){showbooking(userid);});
+    	$(document).ready(function(){getcustomerid(userid);});
+		$(document).ready(function(){showbooking(userid);});
 	
 	</script>	
     <!------------------------------- CUSTOMER HISTORY BOOKING ----------------------------->
