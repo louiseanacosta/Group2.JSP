@@ -84,43 +84,120 @@ function showcust(userid)
 // display booking of customer
 function getcustomerid(userid)
 {
+	var id;
 	// get customer id 
 	var url = "http://localhost:8080/Group2JSP/rest/customer/getuser/"+userid;
 	$.get(url,function(json){
-		var Id = json.customerId;
-		return Id;
+		id = json.customerId;
+		showbooking(id)
 	},"json");
-	
 }
-	
 
-function showbooking(userid)	
+function showbooking(customerId)	
 {
-	var customerId = getcustomerid(userid);
+	//var customerId = getcustomerid(userid);
 	// get booking by customer id
 	var displaybooking = document.getElementById("displaybooking"); // div to display booking
 	var url = "http://localhost:8080/Group2JSP/rest/booking/getbooking/"+customerId;
 	var table = document.createElement("table");
+	var th = document.createElement("th");
+	var title = document.createTextNode("Booking No");
+	var title2 = document.createTextNode("Booking Date");
+	var title3 = document.createTextNode("Traveler Count");
+	
+	var td = document.createElement("td");
+	th.appendChild(title);
+	th.appendChild(title2);
+	th.appendChild(title3);
+	td.appendChild(th);
 	
 		$.get(url,function(json){
 			for (i=0; i<json.length; i++)
 				{
+				// <td><p>TEXT</p></td>
 					var tr = document.createElement("tr");
-					var td = document.createElement("td");
-					td.text=json[i].bookingNo;
-					td.text=json[i].bookingDate;
-					td.text=json[i].travelerCount;
-	
-					tr.appendChild(td);
 					
+					var td = document.createElement("td");
+					var td2 = document.createElement("td");
+					var td3 = document.createElement("td");
+					
+					var text = document.createTextNode(json[i].bookingNo);
+					var text2 = document.createTextNode(json[i].bookingDate);
+					var text3 = document.createTextNode(json[i].travelerCount);
+					
+					td.appendChild(text);
+					td2.appendChild(text2);
+					td3.appendChild(text3);
+
+					tr.appendChild(td);
+					tr.appendChild(td2);
+					tr.appendChild(td3);
+					
+					table.appendChild(tr);
 				}	
+
 			// display data in table
-			table.appendChild(tr);
+			
 			displaybooking.appendChild(table); 
 		},"json");
-	
 } 
 
+function showbookingdetail(bookingid)	
+	 {
+	 	var bookingid = 11;
+	 	// get booking detail by bookingid
+	 	var displaybookingdetail = document.getElementById("displaybookingdetail"); // div to display booking
+	 	var url = "http://localhost:8080/Group2JSP/rest/booking/getbookingdetail/"+bookingid;
+	 	var table = document.createElement("table");
+	 	var th = document.createElement("th");
+	 	
+	 	var title = document.createTextNode("Booking No");
+	 	var title2 = document.createTextNode("Booking Date");
+	 	var title3 = document.createTextNode("Traveler Count");
+	 	
+	 	var td = document.createElement("td");
+	 	th.appendChild(title);
+	 	th.appendChild(title2);
+	 	th.appendChild(title3);
+	 	td.appendChild(th);
+	 	
+	 		$.get(url,function(json){
+	 			for (i=0; i<json.length; i++)
+	 				{
+	 				// <td><p>TEXT</p></td>
+	 					var tr = document.createElement("tr");
+	 					var td = document.createElement("td");
+	 					var td2 = document.createElement("td");
+	 					var td3 = document.createElement("td");
+	 					var td4 = document.createElement("td");
+	 					var td5 = document.createElement("td");
+	 					
+	 					var text = document.createTextNode(json[i].itineraryNo);
+	 					var text2 = document.createTextNode(json[i].destination);
+	 					var text3 = document.createTextNode(json[i].tripStart);
+	 					var text4 = document.createTextNode(json[i].tripEnd);
+	 					var text5 = document.createTextNode(json[i].basePrice);
+	 					
+	 					td.appendChild(text);
+	 					td2.appendChild(text2);
+	 					td3.appendChild(text3);
+	 					td4.appendChild(text4);
+	 					td5.appendChild(text5);
+
+	 					tr.appendChild(td);
+	 					tr.appendChild(td2);
+	 					tr.appendChild(td3);
+	 					tr.appendChild(td4);
+	 					tr.appendChild(td5);
+	 					
+	 					table.appendChild(tr);
+	 				}	
+
+	 			// display data in table
+	 			
+	 			displaybookingdetail.appendChild(table); 
+	 		},"json");
+	 } 
 	
 </script>
 
@@ -143,12 +220,8 @@ function showbooking(userid)
 %>
 
 <style>
-.borderstyle{
- 	position: relative;
-    padding: 300px;
-    border-radius: 20px;
-    border: 2px solid #dde4ea;
-    border-color: #18a3eb;
+td{
+	width:300px;
 }
 
 label{
@@ -177,9 +250,8 @@ table {
     margin: auto;
     max-width: 100%;
     border-collapse: collapse;
-    border-spacing: 0;
+    //border-spacing: 0; 
 }
-
 
 </style>
              
@@ -246,6 +318,7 @@ table {
 	<script type="text/javascript">
 	var user = "<%=userid%>";
 	$(document).ready(function(){showcust(user);});
+	$(document).ready(function(){getcustomerid(user);});
 	
 	</script>	
 	<!------------------------------- call to use show customer function----------------------------->						
@@ -295,13 +368,8 @@ table {
         </div>
     </div>
     
-    <!------------------------ call display history booking function --------------------------->
-    <script type="text/javascript">
-    var userid = "<%=userid%>"
-    	$(document).ready(function(){getcustomerid(userid);});
-		$(document).ready(function(){showbooking(userid);});
+
 	
-	</script>	
     <!------------------------------- CUSTOMER HISTORY BOOKING ----------------------------->
     <div class="center">
 	    <h1>Booking History</h1>
@@ -311,7 +379,12 @@ table {
 		    <th>Booking No.</th>
 		    <th>Traveler Count</th>
 		</tr> -->
+		
 		<div id="displaybooking"> <!-- insert booking here -->
+	    </div>
+	    
+	    <h1>Booking Details</h1>
+	    <div id="displaybookingdetail"> <!-- insert booking here -->
 	    </div>
 	    
 	    
