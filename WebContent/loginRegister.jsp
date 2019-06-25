@@ -230,7 +230,7 @@ function validate()
                             <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-items-center">
                                 <li class="current-menu-item"><a href="index.jsp">Home</a></li>
                                 <li><a href="packages.jsp">Packages</a></li>
-                                <li><a href="contact.jsp">Log In/</a></li>
+                                <li><a href="contact.jsp">Contact</a></li>
                                 
 
                                 <li class="call-btn button gradient-bg mt-3 mt-md-0">

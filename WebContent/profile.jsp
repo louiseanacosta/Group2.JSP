@@ -44,7 +44,7 @@
  <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript"> 
 
-
+// display customer details
 function showcust(userid)
 {	
 	
@@ -60,10 +60,6 @@ function showcust(userid)
 	var custPostal=json.custPostal;
 	var custCity=json.custCity;
 	var custEmail=json.custEmail;
-	
-	
-	
-	
 	
 	document.getElementById("custFirstName").value = custFirstName;
 	document.getElementById("custLastName").value= custLastName;
@@ -84,6 +80,42 @@ function showcust(userid)
 		
 	},"json");
 }
+
+// display booking of customer
+function showbooking(userid)
+{
+	// get customer id 
+	var url = "http://localhost:8080/Group2JSP/rest/customer/getuser/"+userid;
+	$.get(url,function(json){
+	var customerId = json.customerId;
+	
+	// get booking by customer id
+	var displaybooking = document.getElementById("displaybooking"); // div to display booking
+	var url = "http://localhost:8080/Group2JSP/rest/booking/getbooking/"+customerId;
+	var table = document.createElement("table");
+	
+		$.get(url,function(json){
+			for (i=0; i<json.length; i++)
+				{
+					
+					var tr = document.createElement("tr");
+					var td = document.createElement("td");
+					td.appendChild(json[i].bookingNo);
+					td.appendChild(json[i].bookingDate);
+					td.appendChild(json[i].travelerCount);
+	
+					tr.appendChild(td);
+					
+				}	
+			// display data in table
+			table.appendChild(tr);
+			displaybooking.add(table); 
+		},"json");
+	},"json");
+	
+	
+} 
+
 	
 </script>
 
@@ -98,9 +130,7 @@ function showcust(userid)
  
  		if ((userid != null) && (!userid.equals("")))
 		{
-			out.print("<h3 class='d-flex align-items-center'> Hello " + userid + ", welcome to your travel profile </h3>");
-			
-			
+			//out.print("<h3 class='d-flex align-items-center'> Hello " + userid + ", welcome to your travel profile </h3>");
 			session.removeAttribute("message");
 			
 		}
@@ -128,6 +158,24 @@ border:none;
 width:500px;
 margin:0px auto;
 }
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+}
+
+table {
+    text-align: center;
+    margin: auto;
+    margin: auto;
+    max-width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
 </style>
              
                     
@@ -177,12 +225,9 @@ margin:0px auto;
                         <div class="col-12 col-md-6">
                             <div class="the-news-wrap">
                                     <img src="images/team-1.jpg" alt="">
-
                                 <div class="entry-content">
                                		<button type="button" name="" value="Register" class="button gradient-bg"">Change Photo</button>
                                	</div>
-
-                         
                             </div>
                         </div>
 
@@ -191,12 +236,14 @@ margin:0px auto;
 			                   <div class="col-12 col-md-4 mt-5 mt-lg-0">
 			                    <form method="post" action="" style="width:300px">
 			                        <h2 class="d-flex align-items-center">My Profile</h2>
-	
+			                        
+	<!------------------------------- call to use show customer function----------------------------->
 	<script type="text/javascript">
 	var user = "<%=userid%>";
 	$(document).ready(function(){showcust(user);});
 	
-	</script>								
+	</script>	
+	<!------------------------------- call to use show customer function----------------------------->						
 			                        <ul class="p-0 m-0">
 			                        <fieldset>
 			                        	<label>First Name:</label><input type="text" name="custFirstName" id="custFirstName" pattern="/^[a-z ,.'-]+$/i" title="invalid name"/>
@@ -231,29 +278,45 @@ margin:0px auto;
 					        			<div style="padding-left:100px">
 					        			<button type="button" name="" value="Register" class="button gradient-bg" onclick="savecustomer()">Save Changes</button>
 					        			</div>
-					        		
 					        		</ul>
 					        		</fieldset>
-			                        <br>
-			                        
 			                    </form>
 			                </div>
-
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-4">
-                <div class="sidebar">
-
                 </div>
             </div>
         </div>
     </div>
-
+    
+    <!------------------------ call display history booking function --------------------------->
+    <script type="text/javascript">
+    var userid = "<%=userid%>"
+	$(document).ready(function(){showbooking(userid);});
+	
+	</script>	
+    <!------------------------------- CUSTOMER HISTORY BOOKING ----------------------------->
+    <div class="center">
+	    <h1>Booking History</h1>
+	    <!-- <table>
+	    <tr>
+		    <th>Booking Date</th>
+		    <th>Booking No.</th>
+		    <th>Traveler Count</th>
+		</tr> -->
+		<div id="displaybooking"> <!-- insert booking here -->
+	    </div>
+	    
+	    
+	    </table>
+    </div>
+    
+    
+    
+    
+    
+	<!---------------------------- END CUSTOMER HISTORY BOOKING ----------------------------->
     <footer class="site-footer">
         <div class="footer-widgets">
             <div class="container">
