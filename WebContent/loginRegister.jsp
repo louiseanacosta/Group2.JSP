@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%
+	String msg = (String)session.getAttribute("message");
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +23,88 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
+ <script type="text/javascript" src="jquery.js"></script>
+ <script type="text/javascript"> 
+
+function showCountry()
+{
+	
+	var Countryselect = document.getElementById("custCountry");
+	var url = "http://localhost:8181/Group2JSP/rest/country/getallCountries";
+	$.get(url,function(json)
+		{
+		
+		for(i=0; i<json.length; i++){
+			var option = document.createElement("option");
+			option.text=json[i].name;
+			option.value=json[i].code;
+			Countryselect.add(option);
+		}
+		
+	},"json");
+}
+
+function showProv(country)
+{
+	var Provselect = document.getElementById("custProv");
+	
+	var url = "http://localhost:8181/Group2JSP/rest/country/getProvState/"+country;
+	
+	$.get(url,function(json)
+			{
+		     Provselect.options.length=0;
+			for(i=0; i<json.length; i++){
+				var option = document.createElement("option");
+				option.text=json[i].name;
+				option.value=json[i].code;
+				
+				Provselect.add(option);
+			}
+			
+		},"json");
+		
+}
+ 
+</script>
+<script>
+	$(document).ready(function(){showCountry();});
+	</script>
+<script src="jquery.js"></script>
+<script>
+	function savecustomer()
+	{
+		console.log("In savecustomer()...")
+		var url = 'http://localhost:8181/Group2JSP/rest/customer/insertcustomer';
+		$.ajax({
+			url:url,
+			method:'put',
+			contentType: "application/json",
+			//dataType: "text",
+			data: JSON.stringify({
+		        "customerId": 0,
+		        "agentId":2,
+		        "custAddress": document.getElementById("custAddress").value,
+		        "custBusPhone": document.getElementById("custBusPhone").value,
+		        "custCity": document.getElementById("custCity").value,
+		        "custCountry": document.getElementById("custCountry").value,
+		        "custEmail":document.getElementById("custEmail").value,
+		        "custFirstName": document.getElementById("custFirstName").value,
+		        "custHomePhone":document.getElementById("custHomePhone").value,
+		        "custLastName": document.getElementById("custLastName").value,
+		        "custPassword": document.getElementById("newpassword").value,
+		        "custPostal": document.getElementById("custPostal").value,
+		        "custProv": document.getElementById("custProv").value,
+		        "custUserId": document.getElementById("newuserid").value}),
+		        success: function(data) {
+		            alert('Register complete! Please log in to visit our website');
+			    },
+			    failure:  function(data) {
+	            	alert('Register complete!');
+			    }  
+		});
+	}
+	
+</script>
 </head>
 <body class="single-page">
     <header class="site-header">
@@ -57,6 +143,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                
                     <h1>Log In/ <br> Register</h1>
 
                     <div class="breadcrumbs">
@@ -78,33 +165,86 @@
             <div class="row">
                 <div class="col-12 col-md-4">
                     <div class="contact-info h-100">
+                    <form method="post" action="LoginVerifier">
                         <h2 class="d-flex align-items-center">Log In:</h2>
 
-                        <ul class="p-0 m-0">
+                        <ul class="p-0 m-0">		        
+		        					        			
                             Username: <br>
-                            <input>
+                            <input type="text" name="userid" required/>
                             <br>
                             Password: <br>
-                             <input>
+                             <input type="password" name="password" required/>
+                             <br>
+                             
+    <%
+		if ((msg != null) && (!msg.equals("")))
+		{
+			out.print("<h2>" + msg + "</h2>");
+			session.removeAttribute("message");
+		}
+	%>
                         </ul>
+                        
                         <br>
-                        <input type="submit" name="" value="Log In" class="button gradient-bg">
+                       <input type="submit" name="" value="Log In" class="button gradient-bg">
+                      
+                       </form>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-4 mt-5 mt-lg-0">
                     <div class="opening-hours h-100">
+                    <form method="post" action="">
                         <h2 class="d-flex align-items-center">Not yet a member? Register with us:</h2>
-
+						
                         <ul class="p-0 m-0">
+                        
+                        	Frist Name:<br>
+		        			<input type="text" name="custFirstName" id="custFirstName" pattern="^[A-Za-z ,.'-]+$" title="invalid name" required="required"/>
+		        			<br>
+		        			Last Name:<br>
+		        			<input type="text" name="custLastName" id="custLastName" pattern="^[A-Za-z ,.'-]+$" title="invalid name" required="required"/>
+		        			<br>
+		        			Bussiness Phone:<br>
+		        			<input type="text" name="custBusPhone" id="custBusPhone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" title="(403)xxx-xxxx or 403xxxxxxx" required="required"/>
+		        			<br>
+		        			Home Phone:<br>
+		        			<input type="text" name="custHomePhone" id="custHomePhone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" title="(403)xxx-xxxx or 403xxxxxxx" required="required"/>
+		        			<br>
+		        			Country:<br>
+		        			<select name='custCountry' id='custCountry' onchange='showProv(this.value)' required="required">
+		        			<option value=''>Select One...</option>
+		        			</select>
+		        			<br>
+		        			Province:<br>
+		        			<select name='custProv'  id='custProv' required="required">
+		        			<option value=''>Select One...</option>
+		        			</select>
+		        			<br>
+		        			Address:<br>
+		        			<input type="text" name="custAddress" id="custAddress" pattern="[A-Za-z0-9'\.\-\s\,].{1,50}" title="Invalid address" required="required"/>
+		        			<br>
+		        			Postal Code:<br>
+		        			<input type="text" name="custPostal" id="custPostal" patter="[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d" title="Invalid postal code" required="required"/>
+		        			<br>
+		        			City:<br>
+		        			<input type="text" name="custCity" id="custCity" pattern="[a-zA-Z].{1.20}" title="Invalid city name" required="required"/>
+		        			<br>		        			
+		        			Email:<br>
+		        			<input type="text" name="custEmail" id="custEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  title="Please enter an valid email" required="required"/>
+		        			<br>
+		        			
                             Username: <br>
-                            <input>
+                            <input type="text" name="newuserid" id="newuserid" pattern="(?i)^(?=.*[a-z])[a-z0-9]{8,20}$" title="User name only in number and letters, it must contain 1 letter and 8 to 20 digit long" required/>
                             <br>
                             Password: <br>
-                             <input>
+                             <input type="password" name="newpassword" id="newpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required/>
+                        
                         </ul>
                         <br>
-                        <input type="submit" name="" value="Register" class="button gradient-bg">
+                        <button type="button" name="" value="Register" class="button gradient-bg" onclick="savecustomer()">Register</button>
+                    </form>
                     </div>
                 </div>
             </div>

@@ -19,6 +19,44 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
+    
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+    
+</script>
+ <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+
+// loads first name, Last name, Email, phone number, and position
+function loadagentsList()
+{
+	//var agentselect =$("#agentid");
+	
+	var url = "http://localhost:8181/Group2JSP/rest/agents/getallagents";
+	$.get(url,function(json)
+		{
+		//info being displayed on page
+		for(i=0; i<json.length; i++){
+			var para = document.createElement("P"); //,"div class="col-12 col-md-6 col-lg-3","img src="images/team-1.jpg","div class="medical-team-wrap"
+			var string = json[i].agentId+" "
+			+json[i].agtFirstName+" "
+			+json[i].agtLastName+" "
+			+json[i].agtEmail
+			+json[i].agtBusPhone
+			+json[i].agtPosition};
+			var node = document.createTextNode(string);
+			para.appendChild(node);
+			
+			
+			var element = document.getElementById("div1");
+			element.appendChild(para);
+		}
+		
+	,"json");
+}
+</script>
 </head>
 <body class="single-page">
     <header class="site-header">
@@ -78,30 +116,37 @@
             <div class="row">
                 <div class="col-12 col-md-4">
                     <div class="contact-info h-100">
-                        <h2 class="d-flex align-items-center">Contact Info</h2>
+                    
+                 <!-- add agency contacts in here if you have time -- hard coded right now -->
+                    
+                        <h2 class="d-flex align-items-center">Calgary Office</h2>
 
                         <ul class="p-0 m-0">
-                            <li><span>Addtress:</span>Mitlton Str. 26-27 London UK</li>
-                            <li><span>Phone:</span>+53 345 7953 32453</li>
-                            <li><span>Email:</span>yourmail@gmail.com</li>
+                            <li><span>Address:</span>115 8th Ave SW Calgary AB</li>
+                            <li><span>Phone:</span>4032719873</li>
+                            <li><span>Fax:</span>4032719872</li>
+                            <li><span>Postal Code:</span>T2P1N3</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4 mt-5 mt-lg-0">
-                    <div class="opening-hours h-100">
-                        <h2 class="d-flex align-items-center">Opening Hours</h2>
+                <div class="col-12 col-md-4">
+                    <div class="contact-info h-100">
+                    
+                 <!-- add agency contacts in here if you have time -- hard coded right now -->
+                    
+                        <h2 class="d-flex align-items-center">Okotoks office</h2>
 
                         <ul class="p-0 m-0">
-                            <li>Monday - Thursday <span>8.00 - 19.00</span></li>
-                            <li>Friday <span>8.00 - 18.30</span></li>
-                            <li>Saturday <span>9.30 - 17.00</span></li>
-                            <li>Sunday <span>9.30 - 15.00</span></li>
+                            <li><span>Address:</span>110 Main Street Okotoks AB</li>
+                            <li><span>Phone:</span>4035632381</li>
+                            <li><span>Fax:</span>4035632382</li>
+                             <li><span>Postal Code:</span>T7R3J5</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="col-12 col-md-4 mt-5 mt-lg-0">
+                <!-- <div class="col-12 col-md-4 mt-5 mt-lg-0">
                     <div class="emergency-box h-100">
                         <h2 class="d-flex align-items-center">Head Office</h2>
 
@@ -111,7 +156,7 @@
 
                         <p>Lorem ipsum dolor sit amet, cons ectetur adipiscing elit. Donec males uada lorem maximus mauris sceler isque, at rutrum nulla.</p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -142,18 +187,29 @@
                 <div class="col-12">
                     <input type="submit" name="" value="Send Message" class="button gradient-bg">
                 </div>
-            </div><!-- row -->
+            </div><!-- end of row -->
         </div>
-    </div><!-- contact-form -->
-
+    </div><!--end of  contact-form -->
+    
+<!-- displaying agent details 
+  -- calls the function from top of page to loop through each agent in 
+  -- DB and display their details 
+ -->
+ 
+<div id="agentdetail"></div>   	
+	<div id="div1"></div> 
     <div class="medical-team">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <h2>Agents</h2>
                 </div>
-
-                <div class="col-12 col-md-6 col-lg-3">
+               
+    <!-- Display all agent details  -->
+	<script>
+		$(document).ready(function(){loadagentsList();});
+	</script>
+                <!-- <div class="col-12 col-md-6 col-lg-3">
                     <div class="medical-team-wrap">
                         <img src="images/team-1.jpg" alt="">
 
@@ -187,7 +243,7 @@
                         <h4>Agent 1</h4>
                         <h5>Detail</h5>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -201,7 +257,6 @@
             </div>
         </div>
     </div>
-
 
 
     <footer class="site-footer">
@@ -219,7 +274,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                     </div><!-- .col -->
 
                     <div class="col-12 col-md-6 col-lg-4 mt-5 mt-md-0">
-                        <div class="foot-contact">
+                    
+                        <!--  <div class="foot-contact">
                             <h2>Contact</h2>
 
                             <ul class="p-0 m-0">
@@ -227,7 +283,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                                 <li><span>Phone:</span>+53 345 7953 32453</li>
                                 <li><span>Email:</span>yourmail@gmail.com</li>
                             </ul>
-                        </div>
+                        </div> -->
+                        
                     </div><!-- .col -->
 
                     <div class="col-12 col-md-6 col-lg-4 mt-5 mt-md-0">
