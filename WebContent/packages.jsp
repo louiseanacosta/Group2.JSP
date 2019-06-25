@@ -269,11 +269,11 @@
                         <h2 class="widget-title">Categories</h2>
 
                         <ul class="p-0 m-0">
-                            <li><a href="#">Radiology</a></li>
-                            <li><a href="#">Cardiology</a></li>
-                            <li><a href="#">Gastroenterology</a></li>
-                            <li><a href="#">Neurology</a></li>
-                            <li><a href="#">General surgery</a></li>
+                            <li><a href="#">Caribbean New Year</a></li>
+                            <li><a href="#">Polynesian Paradise</a></li>
+                            <li><a href="#">Asian Expedition</a></li>
+                            <li><a href="#">European Vacation</a></li>
+                            <li><a href="#">1qwe</a></li>
                         </ul>
                     </div>
 
