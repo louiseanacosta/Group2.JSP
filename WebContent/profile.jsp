@@ -100,16 +100,16 @@ function showbooking(userid)
 					
 					var tr = document.createElement("tr");
 					var td = document.createElement("td");
-					td.appendChild(json[i].bookingNo);
-					td.appendChild(json[i].bookingDate);
-					td.appendChild(json[i].travelerCount);
+					td.text=json[i].bookingNo;
+					td.text=json[i].bookingDate;
+					td.text=json[i].travelerCount;
 	
 					tr.appendChild(td);
 					
 				}	
 			// display data in table
 			table.appendChild(tr);
-			displaybooking.add(table); 
+			displaybooking.appendChild(table); 
 		},"json");
 	},"json");
 	
