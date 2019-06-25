@@ -87,8 +87,8 @@ function getcustomerid(userid)
 	// get customer id 
 	var url = "http://localhost:8080/Group2JSP/rest/customer/getuser/"+userid;
 	$.get(url,function(json){
-		String customerId = json.customerId;
-		return customerId;
+		var Id = json.customerId;
+		return Id;
 	},"json");
 	
 }
