@@ -125,18 +125,11 @@ function loadPackageList()
                                     <a href="#"><img src="images/news-1.png" alt=""></a>
                                 </figure>
                                 
-                                  <script>
-									$(document).ready(function(){loadPackageList();});
-								  </script>
-	
-									<div class="col-12 col-md-6 col-lg-3">
-										<div class="div1" class="medical-team-wrap">
-										</div>
-									</div>
+
                                 
-<!-- 
+
                                 <header class="entry-header">
-                                    <h3>The latest in Medicine</h3>
+                                    <h3>Polynesian Paradise</h3>
 
                                     <div class="post-metas d-flex flex-wrap align-items-center">
                                         <div class="posted-date"><label>Date: </label><a href="#">April 12, 2018</a></div>
@@ -144,8 +137,18 @@ function loadPackageList()
                                         <div class="posted-by"><label>By: </label><a href="#">Dr. Jake Williams</a></div>
 
                                         <div class="post-comments"><a href="#">2 Comments</a></div>
+                                        
+                                      
+                                      
+                                    		<script>$(document).ready(function(){loadPackageList();});
+								  			</script>
+	
+										<div class="col-12 col-md-6 col-lg-3">
+											<div class="div1" class="medical-team-wrap">
+											</div>
+										</div>
                                     </div>
-                                </header> -->
+                                </header>
 
                                 <div class="entry-content">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. </p>
@@ -157,7 +160,7 @@ function loadPackageList()
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6">
+<!--                         <div class="col-12 col-md-6">
                             <div class="the-news-wrap">
                                 <figure class="post-thumbnail">
                                     <a href="#"><img src="images/news-2.png" alt=""></a>
@@ -296,7 +299,7 @@ function loadPackageList()
                                 </footer>
                             </div>
                         </div>
-
+ -->
                         <div class="col-12">
                             <ul class="pagination d-flex flex-wrap align-items-center p-0">
                                 <li class="active"><a href="#">01</a></li>
