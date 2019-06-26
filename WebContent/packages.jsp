@@ -34,7 +34,7 @@ function loadPackageList()
 {
 	//var selectPackage =$("#packageid");
 	
-	var url = "http://localhost:8181/Group2JSP/rest/package/getpackage/1";
+	var url = "http://localhost:8080/Group2JSP/rest/package/getallpackages";
 	$.get(url,function(json)
 		{
 		//info being displayed on page
@@ -144,7 +144,7 @@ function loadPackageList()
 								  			</script>
 	
 										<div class="col-12 col-md-6 col-lg-3">
-											<div class="div1" class="medical-team-wrap">
+											<div id="div1" class="medical-team-wrap">
 											</div>
 										</div>
                                     </div>
