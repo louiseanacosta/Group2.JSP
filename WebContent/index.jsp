@@ -67,7 +67,7 @@
                                     </header><!-- .entry-header -->
 
                                     <div class="entry-content mt-4">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+                                        <p><h3>Don't miss a moment of this summer.</h3></p>
                                     </div><!-- .entry-content -->
 
                                     <footer class="entry-footer d-flex flex-wrap align-items-center mt-4">
@@ -89,7 +89,7 @@
                                     </header><!-- .entry-header -->
 
                                     <div class="entry-content mt-4">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+                                        <p>"I was reading this book I picked up at a local bookstore from the friendliest man. Looking out over the city, seeing the mountains in the background, the sun shining. It was perfect, a truly perfect moment"</p>
                                     </div><!-- .entry-content -->
 
                                     <footer class="entry-footer d-flex flex-wrap align-items-center mt-4">
@@ -111,7 +111,7 @@
                                     </header><!-- .entry-header -->
 
                                     <div class="entry-content mt-4">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
+                                        <p>"Life can get busy. But this, wow. It really makes you realize how small you are and how beautiful and big our world is. These mountains have a way of really grounding you. It's quite inspiring."</p>
                                     </div><!-- .entry-content -->
 
                                     <footer class="entry-footer d-flex flex-wrap align-items-center mt-4">
