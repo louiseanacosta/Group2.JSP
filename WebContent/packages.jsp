@@ -151,7 +151,7 @@ function loadPackageList()
                                 </header>
 
                                 <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. </p>
+                                    <p>Beautiful Polynesian beaches and resorts. Adult only package to allow full relaxation</p>
                                 </div>
 
                                 <footer class="entry-footer mt-5">
