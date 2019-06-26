@@ -43,8 +43,8 @@ function loadPackageList()
 			var string = json[i].packageId+" "
 			+json[i].pkgName+" "
 			+json[i].pkgDesc+" "
-			+json[i].pkgBasePrice
-			+json[i].pkgStartDate
+			+json[i].pkgBasePrice+" "
+			+json[i].pkgStartDate+" "
 			+json[i].pkgEndDate};
 			var node = document.createTextNode(string);
 			para.appendChild(node);
