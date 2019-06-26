@@ -34,7 +34,7 @@ function loadPackageList()
 {
 	//var selectPackage =$("#packageid");
 	
-	var url = "http://localhost:8080/Group2JSP/rest/package/getallpackages";
+	var url = "http://localhost:8181/Group2JSP/rest/package/getallpackages";
 	$.get(url,function(json)
 		{
 		//info being displayed on page
@@ -43,9 +43,9 @@ function loadPackageList()
 			var string = json[i].packageId+" "
 			+json[i].pkgName+" "
 			+json[i].pkgDesc+" "
-			+json[i].pkgBasePrice
-			+json[i].pkgStartDate
-			+json[i].pkgEndDate};
+			+json[i].pkgBasePrice+" "
+			+json[i].pkgStartDate+" "
+			+json[i].pkgEndDate;
 			var node = document.createTextNode(string);
 			para.appendChild(node);
 			
