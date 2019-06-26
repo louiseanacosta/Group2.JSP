@@ -85,12 +85,25 @@ function showcust(userid)
 function getcustomerid(userid)
 {
 	var id;
+	var bookingid;
 	// get customer id 
 	var url = "http://localhost:8080/Group2JSP/rest/customer/getuser/"+userid;
 	$.get(url,function(json){
 		id = json.customerId;
-		showbooking(id)
+		showbooking(id);
+		
+		var url2 = "http://localhost:8080/Group2JSP/rest/booking/getbooking/"+id;
+		$.get(url2,function(json){
+			for (i=0; i<json.length; i++)
+				{
+				 	// get booking id
+					bookingid = json[i].bookingId;
+					showbookingdetail(bookingid);
+				} 
+		},"json");
 	},"json");
+	
+	
 }
 
 function showbooking(customerId)	
@@ -144,28 +157,29 @@ function showbooking(customerId)
 
 function showbookingdetail(bookingid)	
 	 {
-	 	var bookingid = 11;
+	 	//var bookingid = 11;
 	 	// get booking detail by bookingid
 	 	var displaybookingdetail = document.getElementById("displaybookingdetail"); // div to display booking
-	 	var url = "http://localhost:8080/Group2JSP/rest/booking/getbookingdetail/"+bookingid;
-	 	var table = document.createElement("table");
-	 	var th = document.createElement("th");
+	 	var url = "http://localhost:8080/Group2JSP/rest/bookingdetail/getbookingdetail/"+bookingid;
+	 	var td = document.createElement("td");
+	 	
+	 	/* var th = document.createElement("th");
 	 	
 	 	var title = document.createTextNode("Booking No");
 	 	var title2 = document.createTextNode("Booking Date");
 	 	var title3 = document.createTextNode("Traveler Count");
 	 	
-	 	var td = document.createElement("td");
+	 	
 	 	th.appendChild(title);
 	 	th.appendChild(title2);
 	 	th.appendChild(title3);
-	 	td.appendChild(th);
+	 	td.appendChild(th); */
 	 	
 	 		$.get(url,function(json){
 	 			for (i=0; i<json.length; i++)
 	 				{
-	 				// <td><p>TEXT</p></td>
 	 					var tr = document.createElement("tr");
+	 					
 	 					var td = document.createElement("td");
 	 					var td2 = document.createElement("td");
 	 					var td3 = document.createElement("td");
@@ -182,20 +196,16 @@ function showbookingdetail(bookingid)
 	 					td2.appendChild(text2);
 	 					td3.appendChild(text3);
 	 					td4.appendChild(text4);
-	 					td5.appendChild(text5);
-
+	 					td5.appendChild(text5);						
+ 
 	 					tr.appendChild(td);
 	 					tr.appendChild(td2);
 	 					tr.appendChild(td3);
 	 					tr.appendChild(td4);
 	 					tr.appendChild(td5);
 	 					
-	 					table.appendChild(tr);
+	 					displaybookingdetail.appendChild(tr);
 	 				}	
-
-	 			// display data in table
-	 			
-	 			displaybookingdetail.appendChild(table); 
 	 		},"json");
 	 } 
 	
@@ -318,8 +328,7 @@ table {
 	<script type="text/javascript">
 	var user = "<%=userid%>";
 	$(document).ready(function(){showcust(user);});
-	$(document).ready(function(){getcustomerid(user);});
-	
+	$(document).ready(function(){getcustomerid(user);}); // displays booking info
 	</script>	
 	<!------------------------------- call to use show customer function----------------------------->						
 			                        <ul class="p-0 m-0">
@@ -382,9 +391,12 @@ table {
 		
 		<div id="displaybooking"> <!-- insert booking here -->
 	    </div>
-	    
-	    <h1>Booking Details</h1>
-	    <div id="displaybookingdetail"> <!-- insert booking here -->
+	    <br>
+	    <h1>Details</h1>
+	    <div > <!-- insert booking here -->
+	    	<table id="displaybookingdetail">
+	    	
+	    	</table>
 	    </div>
 	    
 	    

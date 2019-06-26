@@ -17,6 +17,7 @@ import com.google.gson.reflect.TypeToken;
 
 import model.Booking;
 
+@Path("/bookingdetail")
 public class BookingDetailRestService {
 	// get booking history of customer
 	@GET
@@ -24,10 +25,10 @@ public class BookingDetailRestService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getBookingDetail(@PathParam("bookingid") int bookingid)
 	{
-		//http://localhost:8080/Group2JSP/rest/booking/getbookingdetail/{bookingid}
+		//http://localhost:8080/Group2JSP/rest/bookingdetail/getbookingdetail/{bookingid}
 		EntityManager em =
 				Persistence.createEntityManagerFactory("Group2JSP").createEntityManager();
-		Query query = em.createQuery("SELECT b FROM Bookingdetail b WHERE b.customerid = " + bookingid);
+		Query query = em.createQuery("SELECT b FROM Bookingdetail b WHERE b.bookingId = " + bookingid);
 		List<Booking> bookings = query.getResultList();
 		Gson gson = new Gson();
 		Type type = new TypeToken<List<Booking>>(){}.getType();

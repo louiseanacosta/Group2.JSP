@@ -57,8 +57,8 @@ function loadagentsList()
 			
 			
 			var element = document.getElementById("div1");
-			element.appendChild(para);
 			element.appendChild(DOM_a);
+			element.appendChild(para);
 		}
 		
 		},"json");
