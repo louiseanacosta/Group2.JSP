@@ -44,7 +44,7 @@ public class PackageRestService {
 		@Produces(MediaType.APPLICATION_JSON)
 		public String getAllPackages()
 		{
-			//http://localhost:8080/Group2JSP/rest/package/getAllPackages
+			//http://localhost:8080/Group2JSP/rest/package/getallpackages
 			EntityManager em =
 					Persistence.createEntityManagerFactory("Group2JSP").createEntityManager();
 			Query query = em.createQuery("SELECT p FROM Package p");
