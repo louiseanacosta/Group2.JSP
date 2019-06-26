@@ -154,7 +154,6 @@
                             <a class="d-flex justify-content-center align-items-center" href="#"><img src="images/emergency-call.png"> +(403) 111-1111</a>
                         </div>
 
-                        <p>Lorem ipsum dolor sit amet, cons ectetur adipiscing elit. Donec males uada lorem maximus mauris sceler isque, at rutrum nulla.</p>
                     </div>
                 </div>
 
@@ -202,18 +201,18 @@
                                 </figure>
 
                                 <header class="entry-header">
-                                    <h3>Package 1</h3>
+                                    <h3>Asian Expedition</h3>
 
                                     <div class="post-metas d-flex flex-wrap align-items-center">
-                                        <div class="posted-date"><label>Start Date: </label><a href="#">April 12, 2018</a></div>
+                                        <div class="posted-date"><label>Start Date: </label><a href="#">December 12, 2019</a></div>
 
-                                        <div class="posted-by"><label>End Date: </label><a href="#">April 12, 2018</a></div>
+                                        <div class="posted-by"><label>End Date: </label><a href="#">December 20, 2019</a></div>
 
                                     </div>
                                 </header>
 
                                 <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. </p>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -225,18 +224,18 @@
                                 </figure>
 
                                 <header class="entry-header">
-                                    <h3>Package 2</h3>
+                                    <h3>Polynesian Paradise</h3>
 
                                     <div class="post-metas d-flex flex-wrap align-items-center">
-                                        <div class="posted-date"><label>Start Date: </label><a href="#">April 12, 2018</a></div>
+                                        <div class="posted-date"><label>Start Date: </label><a href="#">November 1, 2019</a></div>
 
-                                        <div class="posted-by"><label>End Date:</label><a href="#">April 12, 2018</a></div>
+                                        <div class="posted-by"><label>End Date:</label><a href="#">November 12, 2019</a></div>
 
                                     </div>
                                 </header>
 
                                 <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. </p>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -248,17 +247,17 @@
                                 </figure>
 
                                 <header class="entry-header">
-                                    <h3>Package 3</h3>
+                                    <h3>Caribbean New Year</h3>
 
                                     <div class="post-metas d-flex flex-wrap align-items-center">
-                                        <div class="posted-date"><label>Start Date: </label><a href="#">April 12, 2018</a></div>
+                                        <div class="posted-date"><label>Start Date: </label><a href="#">January 1, 2020</a></div>
 
-                                        <div class="posted-by"><label>End Date:</label><a href="#">April 12, 2018</a></div>
+                                        <div class="posted-by"><label>End Date:</label><a href="#">January 12, 2020</a></div>
                                     </div>
                                 </header>
 
                                 <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. </p>
+                                    
                                 </div>
                             </div>
                         </div>

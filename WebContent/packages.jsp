@@ -132,14 +132,8 @@ function loadPackageList()
                                     <h3>Polynesian Paradise</h3>
 
                                     <div class="post-metas d-flex flex-wrap align-items-center">
-                                        <div class="posted-date"><label>Date: </label><a href="#">April 12, 2018</a></div>
+                                        <div class="posted-date"><a href="#">December 12, 2019</a></div>
 
-                                        <div class="posted-by"><label>By: </label><a href="#">Dr. Jake Williams</a></div>
-
-                                        <div class="post-comments"><a href="#">2 Comments</a></div>
-                                        
-                                      
-                                      
                                     		<script>$(document).ready(function(){loadPackageList();});
 								  			</script>
 	
@@ -155,7 +149,7 @@ function loadPackageList()
                                 </div>
 
                                 <footer class="entry-footer mt-5">
-                                    <a class="button gradient-bg" href="#">Read More</a>
+                                    <a class="button gradient-bg" href="#">Book</a>
                                 </footer>
                             </div>
                         </div>
