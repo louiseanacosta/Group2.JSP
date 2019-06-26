@@ -35,6 +35,184 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
+ <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+</script>
+
+ <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript"> 
+
+// display customer details
+function showcust(userid)
+{	
+	
+	var url = "http://localhost:8080/Group2JSP/rest/customer/getuser/"+userid;
+	$.get(url,function(json){
+	var custFirstName = json.custFirstName;
+	var custLastName=json.custLastName;
+	var custBusPhone =json.custBusPhone;
+	var custHomePhone=json.custHomePhone;
+	var custCountry=json.custCountry;
+	var custProv=json.custProv;
+	var custAddress=json.custAddress;
+	var custPostal=json.custPostal;
+	var custCity=json.custCity;
+	var custEmail=json.custEmail;
+	
+	document.getElementById("custFirstName").value = custFirstName;
+	document.getElementById("custLastName").value= custLastName;
+	document.getElementById("custBusPhone").value= custBusPhone;
+	document.getElementById("custHomePhone").value= custHomePhone;
+	//need to fix the country and Prov select 
+	var country = document.getElementById("custCountry");
+	country.options[country.options.length] = new Option(custCountry, custCountry);
+	
+	var prov = document.getElementById("custProv");
+	prov.options[prov.options.length] = new Option(custProv, custProv);
+	
+	document.getElementById("custAddress").value= custAddress;
+	document.getElementById("custPostal").value= custPostal;
+	document.getElementById("custLastName").value= custLastName;
+	document.getElementById("custCity").value= custCity;
+	document.getElementById("custEmail").value= custEmail;
+		
+	},"json");
+}
+
+// display booking of customer
+function getcustomerid(userid)
+{
+	var id;
+	var bookingid;
+	// get customer id 
+	var url = "http://localhost:8080/Group2JSP/rest/customer/getuser/"+userid;
+	$.get(url,function(json){
+		id = json.customerId;
+		showbooking(id);
+		
+		var url2 = "http://localhost:8080/Group2JSP/rest/booking/getbooking/"+id;
+		$.get(url2,function(json){
+			for (i=0; i<json.length; i++)
+				{
+				 	// get booking id
+					bookingid = json[i].bookingId;
+					showbookingdetail(bookingid);
+				} 
+		},"json");
+	},"json");
+	
+	
+}
+
+function showbooking(customerId)	
+{
+	//var customerId = getcustomerid(userid);
+	// get booking by customer id
+	var displaybooking = document.getElementById("displaybooking"); // div to display booking
+	var url = "http://localhost:8080/Group2JSP/rest/booking/getbooking/"+customerId;
+	var table = document.createElement("table");
+	var th = document.createElement("th");
+	var title = document.createTextNode("Booking No");
+	var title2 = document.createTextNode("Booking Date");
+	var title3 = document.createTextNode("Traveler Count");
+	
+	var td = document.createElement("td");
+	th.appendChild(title);
+	th.appendChild(title2);
+	th.appendChild(title3);
+	td.appendChild(th);
+	
+		$.get(url,function(json){
+			for (i=0; i<json.length; i++)
+				{
+				// <td><p>TEXT</p></td>
+					var tr = document.createElement("tr");
+					
+					var td = document.createElement("td");
+					var td2 = document.createElement("td");
+					var td3 = document.createElement("td");
+					
+					var text = document.createTextNode(json[i].bookingNo);
+					var text2 = document.createTextNode(json[i].bookingDate);
+					var text3 = document.createTextNode(json[i].travelerCount);
+					
+					td.appendChild(text);
+					td2.appendChild(text2);
+					td3.appendChild(text3);
+
+					tr.appendChild(td);
+					tr.appendChild(td2);
+					tr.appendChild(td3);
+					
+					table.appendChild(tr);
+				}	
+
+			// display data in table
+			
+			displaybooking.appendChild(table); 
+		},"json");
+} 
+
+function showbookingdetail(bookingid)	
+	 {
+	 	//var bookingid = 11;
+	 	// get booking detail by bookingid
+	 	var displaybookingdetail = document.getElementById("displaybookingdetail"); // div to display booking
+	 	var url = "http://localhost:8080/Group2JSP/rest/bookingdetail/getbookingdetail/"+bookingid;
+	 	var td = document.createElement("td");
+	 	
+	 	/* var th = document.createElement("th");
+	 	
+	 	var title = document.createTextNode("Booking No");
+	 	var title2 = document.createTextNode("Booking Date");
+	 	var title3 = document.createTextNode("Traveler Count");
+	 	
+	 	
+	 	th.appendChild(title);
+	 	th.appendChild(title2);
+	 	th.appendChild(title3);
+	 	td.appendChild(th); */
+	 	
+	 		$.get(url,function(json){
+	 			for (i=0; i<json.length; i++)
+	 				{
+	 					var tr = document.createElement("tr");
+	 					
+	 					var td = document.createElement("td");
+	 					var td2 = document.createElement("td");
+	 					var td3 = document.createElement("td");
+	 					var td4 = document.createElement("td");
+	 					var td5 = document.createElement("td");
+	 					
+	 					var text = document.createTextNode(json[i].itineraryNo);
+	 					var text2 = document.createTextNode(json[i].destination);
+	 					var text3 = document.createTextNode(json[i].tripStart);
+	 					var text4 = document.createTextNode(json[i].tripEnd);
+	 					var text5 = document.createTextNode(json[i].basePrice);
+	 					
+	 					td.appendChild(text);
+	 					td2.appendChild(text2);
+	 					td3.appendChild(text3);
+	 					td4.appendChild(text4);
+	 					td5.appendChild(text5);						
+ 
+	 					tr.appendChild(td);
+	 					tr.appendChild(td2);
+	 					tr.appendChild(td3);
+	 					tr.appendChild(td4);
+	 					tr.appendChild(td5);
+	 					
+	 					displaybookingdetail.appendChild(tr);
+	 				}	
+	 		},"json");
+	 } 
+	
+</script>
+
+
+
 </head>
  <%
  /*
@@ -44,19 +222,16 @@
  
  		if ((userid != null) && (!userid.equals("")))
 		{
-			out.print("<h3 class='d-flex align-items-center'> Hello " + userid + ", welcome to your travel profile </h3>");
+			//out.print("<h3 class='d-flex align-items-center'> Hello " + userid + ", welcome to your travel profile </h3>");
 			session.removeAttribute("message");
+			
 		}
   
 %>
 
 <style>
-.borderstyle{
- 	position: relative;
-    padding: 300px;
-    border-radius: 20px;
-    border: 2px solid #dde4ea;
-    border-color: #18a3eb;
+td{
+	width:300px;
 }
 
 label{
@@ -71,6 +246,23 @@ border:none;
 width:500px;
 margin:0px auto;
 }
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+}
+
+table {
+    text-align: center;
+    margin: auto;
+    margin: auto;
+    max-width: 100%;
+    border-collapse: collapse;
+    //border-spacing: 0; 
+}
+
 </style>
              
                     
@@ -120,12 +312,9 @@ margin:0px auto;
                         <div class="col-12 col-md-6">
                             <div class="the-news-wrap">
                                     <img src="images/team-1.jpg" alt="">
-
                                 <div class="entry-content">
                                		<button type="button" name="" value="Register" class="button gradient-bg"">Change Photo</button>
                                	</div>
-
-                         
                             </div>
                         </div>
 
@@ -134,7 +323,14 @@ margin:0px auto;
 			                   <div class="col-12 col-md-4 mt-5 mt-lg-0">
 			                    <form method="post" action="" style="width:300px">
 			                        <h2 class="d-flex align-items-center">My Profile</h2>
-									
+			                        
+	<!------------------------------- call to use show customer function----------------------------->
+	<script type="text/javascript">
+	var user = "<%=userid%>";
+	$(document).ready(function(){showcust(user);});
+	$(document).ready(function(){getcustomerid(user);}); // displays booking info
+	</script>	
+	<!------------------------------- call to use show customer function----------------------------->						
 			                        <ul class="p-0 m-0">
 			                        <fieldset>
 			                        	<label>First Name:</label><input type="text" name="custFirstName" id="custFirstName" pattern="/^[a-z ,.'-]+$/i" title="invalid name"/>
@@ -145,12 +341,12 @@ margin:0px auto;
 					        			<label>Home Phone:</label><input type="text" name="custHomePhone" id="custHomePhone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" title="(403)xxx-xxxx or 403xxxxxxx"/>
 					        			<br>
 					        			<label>Country:</label><select name='custCountry' id='custCountry' onchange='showProv(this.value)'>
-					        			<option value=''>Select One...</option>
+					        			
 					        			</select>
 					        			<br>
 					        			<label>Province:</label>
 					        			<select name='custProv'  id='custProv'>
-					        			<option value=''>Select One...</option>
+					        			
 					        			</select>
 					        			<br>
 					        			<label>Address:</label>
@@ -169,29 +365,49 @@ margin:0px auto;
 					        			<div style="padding-left:100px">
 					        			<button type="button" name="" value="Register" class="button gradient-bg" onclick="savecustomer()">Save Changes</button>
 					        			</div>
-					        		
 					        		</ul>
 					        		</fieldset>
-			                        <br>
-			                        
 			                    </form>
 			                </div>
-
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-4">
-                <div class="sidebar">
-
                 </div>
             </div>
         </div>
     </div>
+    
 
+	
+    <!------------------------------- CUSTOMER HISTORY BOOKING ----------------------------->
+    <div class="center">
+	    <h1>Booking History</h1>
+	    <!-- <table>
+	    <tr>
+		    <th>Booking Date</th>
+		    <th>Booking No.</th>
+		    <th>Traveler Count</th>
+		</tr> -->
+		
+		<div id="displaybooking"> <!-- insert booking here -->
+	    </div>
+	    <br>
+	    <h1>Details</h1>
+	    <div > <!-- insert booking here -->
+	    	<table id="displaybookingdetail">
+	    	
+	    	</table>
+	    </div>
+	    
+	    
+	    </table>
+    </div>
+    
+    
+    
+    
+    
+	<!---------------------------- END CUSTOMER HISTORY BOOKING ----------------------------->
     <footer class="site-footer">
         <div class="footer-widgets">
             <div class="container">

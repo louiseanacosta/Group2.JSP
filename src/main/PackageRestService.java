@@ -1,6 +1,7 @@
 package main;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -37,6 +38,24 @@ public class PackageRestService {
 			em.close();
 			return jsonString;
 		}
+		
+		@GET
+		@Path("/getallpackages")
+		@Produces(MediaType.APPLICATION_JSON)
+		public String getAllPackages()
+		{
+			//http://localhost:8080/Group2JSP/rest/package/getAllPackages
+			EntityManager em =
+					Persistence.createEntityManagerFactory("Group2JSP").createEntityManager();
+			Query query = em.createQuery("SELECT p FROM Package p");
+			List<Package> packages = query.getResultList();
+			Gson gson = new Gson();
+			Type type = new TypeToken<List<Package>>(){}.getType();
+			String jsonString = gson.toJson(packages, type);
+			em.close();
+			return jsonString;
+		}
+		
 		
 }
 		

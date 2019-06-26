@@ -20,7 +20,8 @@ public class LogoutController extends HttpServlet {
       // TODO Auto-generated method stub
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-      out.println("<h1>Thank you for using travel experts! Your account is logout.</h1>");
+      //out.println("<h1>Thank you for using travel experts! Your account is logout.</h1>");
+      response.sendRedirect("index.jsp");
       HttpSession session = request.getSession(false);
       // session.setAttribute("user", null);
       session.removeAttribute("loggedin");

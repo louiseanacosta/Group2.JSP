@@ -21,6 +21,10 @@ import com.google.gson.reflect.TypeToken;
 
 import model.Agent;
 
+
+
+
+
 @Path("/agents")
 public class AgentRestService {
 
@@ -46,7 +50,7 @@ public class AgentRestService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getAgent(@PathParam("agentid") int agentId)
 	{
-		//	http://localhost:8080/JSPDay7/rest/agents/getagent/5
+		//	http://localhost:8080/Group2JSP/rest/agents/getagent/5
 		EntityManager em =
 				Persistence.createEntityManagerFactory("Group2JSP").createEntityManager();
 
