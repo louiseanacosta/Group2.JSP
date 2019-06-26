@@ -67,7 +67,7 @@
                                     </header><!-- .entry-header -->
 
                                     <div class="entry-content mt-4">
-                                        <p><h3>Don't miss a moment of this summer.</h3></p>
+                                        <p><h4 style="color:#069">Don't miss a moment of this summer.</h4></p>
                                     </div><!-- .entry-content -->
 
                                     <footer class="entry-footer d-flex flex-wrap align-items-center mt-4">
@@ -111,7 +111,7 @@
                                     </header><!-- .entry-header -->
 
                                     <div class="entry-content mt-4">
-                                        <p>"Life can get busy. But this, wow. It really makes you realize how small you are and how beautiful and big our world is. These mountains have a way of really grounding you. It's quite inspiring."</p>
+                                        <p>"Life can get busy. The mountains have a way of really grounding you. It really makes you realize how small you are and how beautiful and big our world is.  It's quite inspiring."</p>
                                     </div><!-- .entry-content -->
 
                                     <footer class="entry-footer d-flex flex-wrap align-items-center mt-4">
