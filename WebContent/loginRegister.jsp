@@ -30,7 +30,7 @@ function showCountry()
 { 
 	
 	var Countryselect = document.getElementById("custCountry");
-	var url = "http://localhost:8181/Group2JSP/rest/country/getallCountries";
+	var url = "http://localhost:8080/Group2JSP/rest/country/getallCountries";
 	$.get(url,function(json)
 		{
 		
@@ -48,7 +48,7 @@ function showProv(country)
 {
 	var Provselect = document.getElementById("custProv");
 	
-	var url = "http://localhost:8181/Group2JSP/rest/country/getProvState/"+country;
+	var url = "http://localhost:8080/Group2JSP/rest/country/getProvState/"+country;
 	
 	$.get(url,function(json)
 			{
@@ -183,7 +183,7 @@ function validate()
         var custUserId= document.getElementById("newuserid").value;
         
 		console.log("In savecustomer()...")
-		var url = 'http://localhost:8181/Group2JSP/rest/customer/insertcustomer';
+		var url = 'http://localhost:8080/Group2JSP/rest/customer/insertcustomer';
 		$.ajax({
 			url:url,
 			method:'put',
@@ -310,13 +310,13 @@ function validate()
 						
                         <ul class="p-0 m-0">
                         
-                        	Frist Name:<br>
+                        	First Name:<br>
 		        			<input type="text" name="custFirstName" id="custFirstName" pattern="^[A-Za-z ,.'-]+$" title="invalid name" required="required"/>
 		        			<br>
 		        			Last Name:<br>
 		        			<input type="text" name="custLastName" id="custLastName" pattern="^[A-Za-z ,.'-]+$" title="invalid name" required="required"/>
 		        			<br>
-		        			Bussiness Phone:<br>
+		        			Business Phone:<br>
 		        			<input type="text" name="custBusPhone" id="custBusPhone" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$" title="(403)xxx-xxxx or 403xxxxxxx" required="required"/>
 		        			<br>
 		        			Home Phone:<br>
