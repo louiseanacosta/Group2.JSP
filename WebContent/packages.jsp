@@ -34,7 +34,7 @@ function loadPackageList()
 {
 	//var selectPackage =$("#packageid");
 	
-	var url = "http://localhost:8181/Group2JSP/rest/package/getallpackages";
+	var url = "http://localhost:8080/Group2JSP/rest/package/getallpackages";
 	$.get(url,function(json)
 		{
 		//info being displayed on page
@@ -53,7 +53,7 @@ function loadPackageList()
 			var element = document.getElementById("div1");
 			element.appendChild(para);
 		}
-	,"json");
+		},"json");
 }
 </script>
     
