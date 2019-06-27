@@ -40,7 +40,7 @@ public class LoginVerifier extends HttpServlet {
 		{   
 			session.setAttribute("userid", userid);
 			session.setAttribute("loggedin", "True");
-			session.setMaxInactiveInterval(30);
+			session.setMaxInactiveInterval(1800);
 			response.sendRedirect("profile.jsp");
 		}
 		else
