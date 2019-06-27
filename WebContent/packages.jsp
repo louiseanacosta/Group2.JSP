@@ -37,30 +37,103 @@ function loadPackageList()
 	var url = "http://localhost:8080/Group2JSP/rest/package/getallpackages";
 	$.get(url,function(json)
 		{
+		var table = document.createElement("table");
 		//info being displayed on page
 		for(i=0; i<json.length; i++){
-			var para = document.createElement("P"); //,"div class="col-12 col-md-6 col-lg-3","img src="images/team-1.jpg","div class="medical-team-wrap"
-			var string = json[i].packageId+" "
-			+json[i].pkgName+" "
+			/* var para = document.createElement("P"); //,"div class="col-12 col-md-6 col-lg-3","img src="images/team-1.jpg","div class="medical-team-wrap"
+			var string = json[i].pkgName+" "
 			+json[i].pkgDesc+" "
 			+json[i].pkgBasePrice+" "
 			+json[i].pkgStartDate+" "
-			+json[i].pkgEndDate;
-			var node = document.createTextNode(string);
+			+json[i].pkgEndDate; */
+			
+			/* var node = document.createTextNode(string);
 			para.appendChild(node);
 			
 			
 			var element = document.getElementById("div1");
-			element.appendChild(para);
+			element.appendChild(para);  */
+			var tr = document.createElement("tr");
+			
+			var td = document.createElement("td");
+			var td2 = document.createElement("td");
+			var td3 = document.createElement("td");
+			var td4 = document.createElement("td");
+			var td5 = document.createElement("td");
+			var td6 = document.createElement("td");
+			
+			var text = document.createTextNode(json[i].pkgName);
+			var text2 = document.createTextNode(json[i].pkgDesc);
+			var text3 = document.createTextNode(json[i].pkgBasePrice);
+			var text4 = document.createTextNode(json[i].pkgStartDate);
+			var text5 = document.createTextNode(json[i].pkgEndDate);
+			var button = document.createElement("button");
+			
+			
+			var buttontext = document.createTextNode("BOOK");
+			button.appendChild(buttontext);
+			
+			td.appendChild(text);
+			td2.appendChild(text2);
+			td3.appendChild(text3);
+			td4.appendChild(text4);
+			td5.appendChild(text5);
+			td6.appendChild(button);
+
+			tr.appendChild(td);
+			tr.appendChild(td2);
+			tr.appendChild(td3);
+			tr.appendChild(td4);
+			tr.appendChild(td5);
+			tr.appendChild(td6);
+			
+			table.appendChild(tr);
+			
+			
 		}
+		
+		div1.appendChild(table); 
 		},"json");
 }
 </script>
     
-    
-    
-    
 </head>
+
+<style>
+
+button{
+ background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+ 
+ 
+td{
+	width:300px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+}
+
+table {
+    text-align: center;
+    margin: auto;
+    margin: auto;
+    max-width: 100%;
+    border-collapse: collapse;
+    //border-spacing: 0; 
+}
+
+</style>
 <body class="single-page blog-page">
     <header class="site-header">
         <div class="nav-bar">
@@ -114,230 +187,31 @@ function loadPackageList()
 
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-8">
+          
                 <div class="the-news">
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                        
-                      
                             <div class="the-news-wrap">
                                 <figure class="post-thumbnail">
                                     <a href="#"><img src="images/news-1.png" alt=""></a>
                                 </figure>
                                 
-
-                                
-
                                 <header class="entry-header">
                                     <h3>Polynesian Paradise</h3>
 
-                                    <div class="post-metas d-flex flex-wrap align-items-center">
-                                        <div class="posted-date"><a href="#">December 12, 2019</a></div>
-
                                     		<script>$(document).ready(function(){loadPackageList();});
 								  			</script>
-	
-										<div class="col-12 col-md-6 col-lg-3">
 											<div id="div1" class="medical-team-wrap">
 											</div>
-										</div>
-                                    </div>
+									
                                 </header>
 
-                                <div class="entry-content">
-                                    <p>Beautiful Polynesian beaches and resorts. Adult only package to allow full relaxation</p>
-                                </div>
 
                                 <footer class="entry-footer mt-5">
                                     <a class="button gradient-bg" href="#">Book</a>
                                 </footer>
-                            </div>
-                        </div>
-
-<!--                         <div class="col-12 col-md-6">
-                            <div class="the-news-wrap">
-                                <figure class="post-thumbnail">
-                                    <a href="#"><img src="images/news-2.png" alt=""></a>
-                                </figure>
-
-                                <header class="entry-header">
-                                    <h3>All you need to know about pills</h3>
-
-                                    <div class="post-metas d-flex flex-wrap align-items-center">
-                                        <div class="posted-date"><label>Date: </label><a href="#">April 12, 2018</a></div>
-
-                                        <div class="posted-by"><label>By: </label><a href="#">Dr. Jake Williams</a></div>
-
-                                        <div class="post-comments"><a href="#">2 Comments</a></div>
-                                    </div>
-                                </header>
-
-                                <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. </p>
-                                </div>
-
-                                <footer class="entry-footer mt-5">
-                                    <a class="button gradient-bg" href="#">Read More</a>
-                                </footer>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6">
-                            <div class="the-news-wrap">
-                                <figure class="post-thumbnail">
-                                    <a href="#"><img src="images/news-6.png" alt=""></a>
-                                </figure>
-
-                                <header class="entry-header">
-                                    <h3>Marketing and Medicine</h3>
-
-                                    <div class="post-metas d-flex flex-wrap align-items-center">
-                                        <div class="posted-date"><label>Date: </label><a href="#">April 12, 2018</a></div>
-
-                                        <div class="posted-by"><label>By: </label><a href="#">Dr. Jake Williams</a></div>
-
-                                        <div class="post-comments"><a href="#">2 Comments</a></div>
-                                    </div>
-                                </header>
-
-                                <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. </p>
-                                </div>
-
-                                <footer class="entry-footer mt-5">
-                                    <a class="button gradient-bg" href="#">Read More</a>
-                                </footer>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6">
-                            <div class="the-news-wrap">
-                                <figure class="post-thumbnail">
-                                    <a href="#"><img src="images/news-4.png" alt=""></a>
-                                </figure>
-
-                                <header class="entry-header">
-                                    <h3>Marketing and Medicine</h3>
-
-                                    <div class="post-metas d-flex flex-wrap align-items-center">
-                                        <div class="posted-date"><label>Date: </label><a href="#">April 12, 2018</a></div>
-
-                                        <div class="posted-by"><label>By: </label><a href="#">Dr. Jake Williams</a></div>
-
-                                        <div class="post-comments"><a href="#">2 Comments</a></div>
-                                    </div>
-                                </header>
-
-                                <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. </p>
-                                </div>
-
-                                <footer class="entry-footer mt-5">
-                                    <a class="button gradient-bg" href="#">Read More</a>
-                                </footer>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6">
-                            <div class="the-news-wrap">
-                                <figure class="post-thumbnail">
-                                    <a href="#"><img src="images/news-5.png" alt=""></a>
-                                </figure>
-
-                                <header class="entry-header">
-                                    <h3>Marketing and Medicine</h3>
-
-                                    <div class="post-metas d-flex flex-wrap align-items-center">
-                                        <div class="posted-date"><label>Date: </label><a href="#">April 12, 2018</a></div>
-
-                                        <div class="posted-by"><label>By: </label><a href="#">Dr. Jake Williams</a></div>
-
-                                        <div class="post-comments"><a href="#">2 Comments</a></div>
-                                    </div>
-                                </header>
-
-                                <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. </p>
-                                </div>
-
-                                <footer class="entry-footer mt-5">
-                                    <a class="button gradient-bg" href="#">Read More</a>
-                                </footer>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6">
-                            <div class="the-news-wrap">
-                                <figure class="post-thumbnail">
-                                    <a href="#"><img src="images/news-3.png" alt=""></a>
-                                </figure>
-
-                                <header class="entry-header">
-                                    <h3>Marketing and Medicine</h3>
-
-                                    <div class="post-metas d-flex flex-wrap align-items-center">
-                                        <div class="posted-date"><label>Date: </label><a href="#">April 12, 2018</a></div>
-
-                                        <div class="posted-by"><label>By: </label><a href="#">Dr. Jake Williams</a></div>
-
-                                        <div class="post-comments"><a href="#">2 Comments</a></div>
-                                    </div>
-                                </header>
-
-                                <div class="entry-content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus. </p>
-                                </div>
-
-                                <footer class="entry-footer mt-5">
-                                    <a class="button gradient-bg" href="#">Read More</a>
-                                </footer>
-                            </div>
-                        </div>
- -->
-                        <div class="col-12">
-                            <ul class="pagination d-flex flex-wrap align-items-center p-0">
-                                <li class="active"><a href="#">01</a></li>
-                                <li><a href="#">02</a></li>
-                                <li><a href="#">03</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-4">
-                <div class="sidebar">
-                    <div class="search-widget">
-                        <form class="flex flex-wrap align-items-center">
-                            <input type="search" placeholder="Search...">
-                            <button type="submit" class="flex justify-content-center align-items-center">Search</button>
-                        </form><!-- .flex -->
-                    </div><!-- .search-widget -->
-
-                    <div class="sidebar-cats">
-                        <h2 class="widget-title">Categories</h2>
-
-                        <ul class="p-0 m-0">
-                            <li><a href="#">Caribbean New Year</a></li>
-                            <li><a href="#">Polynesian Paradise</a></li>
-                            <li><a href="#">Asian Expedition</a></li>
-                            <li><a href="#">European Vacation</a></li>
-                            <li><a href="#">1qwe</a></li>
-                        </ul>
-                    </div>
-
-                
-
-                    <div class="opening-hours">
-                        <h2 class="d-flex align-items-center">Opening Hours</h2>
-
-                        <ul class="p-0 m-0">
-                            <li>Monday - Thursday <span>8.00 - 19.00</span></li>
-                            <li>Friday <span>8.00 - 18.30</span></li>
-                            <li>Saturday <span>9.30 - 17.00</span></li>
-                            <li>Sunday <span>9.30 - 15.00</span></li>
-                        </ul>
-                    </div>
+                          
+                      <!--  -->
+                      
+                   
                 </div>
             </div>
         </div>
