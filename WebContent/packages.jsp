@@ -38,6 +38,8 @@ function loadPackageList()
 	$.get(url,function(json)
 		{
 		var table = document.createElement("table");
+		var th = document.createElement("th");
+		
 		//info being displayed on page
 		for(i=0; i<json.length; i++){
 			/* var para = document.createElement("P"); //,"div class="col-12 col-md-6 col-lg-3","img src="images/team-1.jpg","div class="medical-team-wrap"
@@ -235,7 +237,7 @@ table {
                         </div>
                         <!--  -->
                         
-                                            <div class="row">
+                                    
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="the-news-wrap">
                                 <figure class="post-thumbnail">
@@ -255,7 +257,7 @@ table {
                             </div>
                         </div>
                         <!--  -->
-                        </div>
+                       
                                 
                                 <header class="entry-header">
                                    
