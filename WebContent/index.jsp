@@ -210,10 +210,6 @@
 
                                     </div>
                                 </header>
-
-                                <div class="entry-content">
-                                    
-                                </div>
                             </div>
                         </div>
 
@@ -233,10 +229,6 @@
 
                                     </div>
                                 </header>
-
-                                <div class="entry-content">
-                                    
-                                </div>
                             </div>
                         </div>
 
@@ -256,9 +248,6 @@
                                     </div>
                                 </header>
 
-                                <div class="entry-content">
-                                    
-                                </div>
                             </div>
                         </div>
                     </div>

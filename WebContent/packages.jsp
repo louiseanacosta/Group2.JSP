@@ -190,25 +190,83 @@ table {
           
                 <div class="the-news">
                             <div class="the-news-wrap">
-                                <figure class="post-thumbnail">
-                                    <a href="#"><img src="images/news-1.png" alt=""></a>
-                                </figure>
+                         <!--  -->
                                 
+                                 
+                                
+                       <div class="row">
+                        <!--  -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="the-news-wrap">
+                                <figure class="post-thumbnail">
+                                    <a href="#"><img src="images/news-3.png" alt=""></a>
+                                </figure>
+
+                                <header class="entry-header">
+                                    <h3>Caribbean New Year</h3>
+
+                                    <div class="post-metas d-flex flex-wrap align-items-center">
+                                        <div class="posted-date"><label>Start Date: </label><a href="#">July 11, 2019</a></div>
+
+                                        <div class="posted-by"><label>End Date:</label><a href="#">Aug 21, 2019</a></div>
+                                    </div>
+                                </header>
+
+                            </div>
+                        </div>
+                        <!--  -->
+                                                <div class="col-12 col-md-6 col-lg-4">
+                            <div class="the-news-wrap">
+                                <figure class="post-thumbnail">
+                                    <a href="#"><img src="images/news-2.png" alt=""></a>
+                                </figure>
+
                                 <header class="entry-header">
                                     <h3>Polynesian Paradise</h3>
 
+                                    <div class="post-metas d-flex flex-wrap align-items-center">
+                                        <div class="posted-date"><label>Start Date: </label><a href="#">Dec 12, 2019</a></div>
+
+                                        <div class="posted-by"><label>End Date:</label><a href="#">Dec 20, 2019</a></div>
+
+                                    </div>
+                                </header>
+                            </div>
+                        </div>
+                        <!--  -->
+                        
+                                            <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="the-news-wrap">
+                                <figure class="post-thumbnail">
+                                    <a href="#"><img src="images/news-1.png" alt=""></a>
+                                </figure>	
+
+                                <header class="entry-header">
+                                    <h3>Asian Expedition</h3>
+
+                                    <div class="post-metas d-flex flex-wrap align-items-center">
+                                        <div class="posted-date"><label>Start Date: </label><a href="#">May 14, 2019</a></div>
+
+                                        <div class="posted-by"><label>End Date: </label><a href="#">May 28, 2019</a></div>
+
+                                    </div>
+                                </header>
+                            </div>
+                        </div>
+                        <!--  -->
+                        </div>
+                                
+                                <header class="entry-header">
+                                   
+                                     </header>
+										
                                     		<script>$(document).ready(function(){loadPackageList();});
 								  			</script>
+								  
 											<div id="div1" class="medical-team-wrap">
 											</div>
 									
-                                </header>
-
-
-                                <footer class="entry-footer mt-5">
-                                    <a class="button gradient-bg" href="#">Book</a>
-                                </footer>
-                          
                       <!--  -->
                       
                    
