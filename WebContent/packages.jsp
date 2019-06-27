@@ -30,6 +30,9 @@
 <script type="text/javascript">
 
 // loads package name, package desc, Base Price, package start date, and package end date
+
+// authored by Colin Lee-Chee and LiMing Hong
+// 20 June 2019
 function loadPackageList()
 {
 	//var selectPackage =$("#packageid");

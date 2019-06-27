@@ -20,6 +20,9 @@ import model.Package;
 
 @Path("package")
 
+// PackageRest Service written by Colin Lee-Chee and LiMing Hong.
+// 20 June 2019
+
 public class PackageRestService {
 	
 		@GET
